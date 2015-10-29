@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>添加会员</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link href="{$smarty.const.ADMIN_CSS_URL}mine.css" type="text/css" rel="stylesheet">
+        <script src="{$smarty.const.ADMIN_JS_URL}jquery-1.8.0min.js"></script>
+    </head>
+
+    <body>
+
+        <div class="div_head">
+            <span>
+                <span style="float:left">当前位置是：商品管理-》添加会员信息</span>
+                <span style="float:right;margin-right: 8px;font-weight: bold">
+                    <a style="text-decoration: none" href="{$smarty.const.__MODULE__}/Order/order_list">【返回】</a>
+                </span>
+            </span>
+        </div>
+        <div></div>
+
+        <div style="font-size: 13px;margin: 10px 5px">
+            {* /shop/index.php/Admin/Goods/add  -->__self__*}
+            <form action="{$smarty.const.__SELF__}" method="post" enctype="multipart/form-data">
+            <table border="1" width="100%" class="table_a">
+
+                <tr>
+                    <td>购买用户</td>
+                    <td>
+                        <select name="order_user" style="width: 100px;" id="user">
+                            <option selected="selected" value="0">请选择</option>
+                            {html_options options=$user_list}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        收货人
+                    </td>
+                    <td>
+                        <select name="order_consignee" style="width: 175px;" id="accept_people">
+                            <option selected="selected" value="0">请选择</option>
+                            {html_options options=$all_user}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>购买商品</td>
+                    <td>
+                        <select name="order_goods" style="width: 100px;">
+                            <option selected="selected" value="0">请选择</option>
+                            {html_options options=$goods_list}
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>运送方式</td>
+                    <td><input type="text" name="order_ship_name" /></td>
+                </tr>
+                <tr>
+                    <td>支付方式</td>
+                    <td><input type="text" name="order_pay_name" /></td>
+                </tr>
+                <tr>
+                    <td>订单备注</td>
+                    <td><input type="text" name="order_remarks" /></td>
+                </tr>
+
+                <tr>
+                    <td>购买数量</td>
+                    <td>
+                        <input type="text" name="order_amount">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="添加">
+                    </td>
+                </tr>  
+            </table>
+            </form>
+        </div>
+    </body>
+    <script>
+
+        $(function(){
+            var user=$('#user');
+            var accept=$('#accept_people');
+            user.change(function(){
+                var key=user.find('option:selected').val();
+                var user_id=key.split(',')[0];//获得该用户的ID
+                $.ajax({
+                    type:'POST',
+                    url:'{$smarty.const.__CONTROLLER__}/get_consignee',
+                    data:{ user_id:user_id},
+                     success:function(data){
+                         if(typeof(data)!="object"){
+                             data=eval('('+data+')');
+                         }
+                         var str='';
+                         if(data.status){
+//                             for(var i in data.data){
+//                                 str +='<option value="'+i+'">'+data.data[i]+'</option>';
+//                             }
+                             $.each(data.data,function(i,v){
+                                 str +='<option value="'+i+'">'+v+'</option>';
+                             })
+                         }else{
+                             str +="<option value=''>---暂无收货人，请完善---</option>";
+                         }
+                         accept.html(str);
+                    },
+                    error:function(data){
+                        alert('操作失败');
+                    },
+                    dataType:'json'
+                });
+            })
+        })
+    </script>
+</html>
