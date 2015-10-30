@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="textInfo">
-                        <form action="javascript:addToCart(9)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+                        <form action="{$smarty.const.__CONTROLLER__}/gwc1" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
                             <div class="clearfix" style="font-size: 14px; font-weight: bold; padding-bottom: 8px;">
                                 {$goods_info.name}      
                             </div>
@@ -171,9 +171,10 @@
                                 </li>
 
                                 <li class="padd">
-                                    <a href="{$smarty.const.__CONTROLLER__}/gwc1"><img src="{$smarty.const.IMG_URL}goumai2.gif"></a>
-                                    <a href="#"><img src="{$smarty.const.IMG_URL}shoucang2.gif"></a>
-                                    <a href="#"><img src="{$smarty.const.IMG_URL}tuijian.gif"></a>
+                                    <input type="hidden" name="goods_id" value="{$goods_info.goods_id}">
+                                    <a><button><img src="{$smarty.const.IMG_URL}goumai2.gif"></button></a>
+                                    <a href="javascript:void(0)" onclick="alert('收藏成功')"><img src="{$smarty.const.IMG_URL}shoucang2.gif"></a>
+                                    <a href="javascript:void(0)" onclick="alert('功能·待完善')"><img src="{$smarty.const.IMG_URL}tuijian.gif"></a>
                                 </li>
                             </ul>
                         </form>

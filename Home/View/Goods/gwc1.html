@@ -13,7 +13,7 @@
         <div class="block">
             <div class="flowBox">
                 <h6><span>商品列表</span></h6>
-                <form id="formCart">
+                <form id="formCart" action="{$smarty.const.__CONTROLLER__}/gwc2" method="post">
                     <table cellpadding="5" cellspacing="1">
                         <tbody><tr>
                                 <th>商品名称</th>
@@ -26,40 +26,55 @@
                             </tr>
                             <tr>
                                 <td align="center">
-                                    <a href="#" target="_blank"><img style="width: 80px; height: 80px;" src="{$smarty.const.IMG_URL}24_thumb_G_1241971981429.jpg" title="P806" /></a><br />
-                                    <a href="#" target="_blank" class="f6">P806</a>
+                                    <a href="#" target="_blank"><img style="width: 80px; height: 80px;" src="{$smarty.const.IMG_UPLOAD}{$goods_info.goods_small_img}" title="{$goods_info.goods_name}" /></a><br />
+                                    <a href="{$smarty.const.__MODULE__}/Goods/detail/goods_id/{$goods_info.goods_id}" target="_blank" class="f6">{$goods_info.goods_name}</a>
                                 </td>
-                                <td>颜色:灰色 <br />
+                                <td>颜色:随机 <br />
                                 </td>
-                                <td align="right">￥2400.00元</td>
-                                <td align="right">￥2000.00元</td>
+                                <td align="right">￥{$goods_info.goods_price*1.5}.00元</td>
+                                <td align="right">￥{$goods_info.goods_price}.00元</td>
                                 <td align="right">
-                                    <input name="goods_number[43]" id="goods_number_43" value="1" size="4" class="inputBg" style="text-align: center;" onkeydown="showdiv(this)" type="text" />
+                                    <center><input type="text" name="goods_num" value="{$number}" style="width:25px;"></center>
                                 </td>
-                                <td align="right">￥2000.00元</td>
+                                <td align="right"><font color="#ff4500">￥{$goods_info.goods_price*$number}.00元</font></td>
                                 <td align="center">
                                     <a href="#" class="f6">删除</a>
                                 </td>
                             </tr>
-                        </tbody></table>
+                        </tbody>
+                    </table>
                     <table cellpadding="5" cellspacing="1">
                         <tbody><tr>
                                 <td>
-                                    购物金额小计 ￥2000.00元，比市场价 ￥2400.00元 节省了 ￥400.00元 (17%)              </td>
+                                    购物金额小计 ￥{$goods_info.goods_price*$number}.00元，比市场价 ￥{$goods_info.goods_price*1.5}.00元 <font color="red">节省了 ￥{$goods_info.goods_price*0.5*$number}.00元 </font>(17%)              </td>
                                 <td align="right">
                                     <input value="清空购物车" class="bnt_blue_1"  type="button" />
                                     <input name="submit" class="bnt_blue_1" value="更新购物车" type="submit" />
                                 </td>
                             </tr>
-                        </tbody></table>
-                    <input name="step" value="update_cart" type="hidden" />
-                </form>
-                <table cellpadding="5" cellspacing="0" width="99%">
-                    <tbody><tr>
-                            <td><a href="{$smarty.const.__MODULE__}/Index/index"><img src="{$smarty.const.IMG_URL}continue.gif" alt="continue" /></a></td>
-                            <td align="right"><a href="{$smarty.const.__CONTROLLER__}/gwc2"><img src="{$smarty.const.IMG_URL}checkout.gif" alt="checkout" /></a></td>
+                        </tbody>
+                    </table>
+                    <table cellpadding="5" cellspacing="0" width="99%">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <a href="{$smarty.const.__MODULE__}/Index/index">
+                                    <img src="{$smarty.const.IMG_URL}continue.gif" alt="continue" />
+                                </a>
+                            </td>
+                            <td align="right">
+                                <input type="hidden" name="goods_id" value="{$goods_info.goods_id}">
+                                <button>
+                                    <a href="{$smarty.const.__CONTROLLER__}/gwc2">
+                                        <img src="{$smarty.const.IMG_URL}checkout.gif" alt="checkout" />
+                                    </a>
+                                </button>
+                            </td>
                         </tr>
-                    </tbody></table>
+                        </tbody>
+                    </table>
+                </form>
+
             </div>
             <div class="blank"></div>
             <div class="blank5"></div>

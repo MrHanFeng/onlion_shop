@@ -10,6 +10,10 @@
 				$this->display('mobile_index');
 			}else{
 				$this->sql();
+				$brand=D('Index');
+				$re=$brand->brand_info();
+//				$this->if_re($re,array('删除订单成功','order_list'),array('删除订单失败','order_list'));
+				$this->assign('brand',$re);
 				$this->display();
 			}
 	    }
