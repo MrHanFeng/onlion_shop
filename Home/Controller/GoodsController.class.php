@@ -92,13 +92,14 @@
         function do_order(){
             unset($_POST['x']);
             unset($_POST['y']);//提交的表单多出来的数据，待核实
-
+            show($_POST);echo "<hr>";
             $order=D('Order');
 
             /*??????????????????????????????????????????为什么末端会多出一个*/
             while(list($k[],$v[])=each($_POST)){
-//                show($k);show($v);echo "<hr>";
+                show($k);show($v);echo "<hr>";
             }
+
 
             $data= array_combine($k,$v);
             array_pop($data);

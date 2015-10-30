@@ -117,6 +117,99 @@
          * 打印订单
          */
         public function order_print(){
+            $order=D('Order');
+            $order_list=$order->order_info();//查询出要打印的数据
 
+            /*对查寻出来的数据进行摘选，处理*/
+            foreach($order_list as $k=>$v){
+                $data[$k][]=$v['order_sn'];
+                $data[$k][]=$v['order_user_id'];
+                $data[$k][]=$v['order_user_name'];
+                $data[$k][]=$v['order_goods_name'];
+                $data[$k][]=date('Y-m-d H:i:s',$v['order_create_time']);
+                $data[$k][]=$v['order_consignee_info'];
+                $data[$k][]=$v['order_status'];
+                $data[$k][]=$v['order_ship_name'];
+                $data[$k][]=$v['order_pay_name'];
+                $data[$k][]=$v['order_remarks'];
+            }
+            /*编辑EXCEL表里的每列开头*/
+            $headArr=array(
+                '订单编号',
+                '用户ID',
+                '用户姓名',
+                '商品名称',
+                '订单生成时间',
+                '收货人信息',
+                '此订单状态',
+                '邮送方式',
+                '支付方式',
+                '备注'
+            );
+            $filename="order_list";//生成的EXCEL的文件名字
+            $this->getExcel($filename,$headArr,$data);
         }
+
+
+        /**
+         * 生成EXCEL文件
+         * @param $fileName,文件名称
+         * @param $headArr,EXCEL文件里的第一行，每列列名
+         * @param $data，打印的数据
+         * @throws \PHPExcel_Exception
+         * @throws \PHPExcel_Reader_Exception
+         */
+        private  function getExcel($fileName,$headArr,$data){
+            //导入PHPExcel类库，因为PHPExcel没有用命名空间，只能inport导入
+            import("Org.Util.PHPExcel");
+            import("Org.Util.PHPExcel.Writer.Excel5");
+            import("Org.Util.PHPExcel.IOFactory.php");
+
+            $date = date("Y_m_d",time());
+            $fileName .= "_{$date}.xls";
+
+            //创建PHPExcel对象，注意，不能少了\
+            $objPHPExcel = new \PHPExcel();
+            $objProps = $objPHPExcel->getProperties();
+
+            //设置表头
+            $key = ord("A");
+            //print_r($headArr);exit;
+            foreach($headArr as $v){
+                $colum = chr($key);
+                $objPHPExcel->setActiveSheetIndex(0) ->setCellValue($colum.'1', $v);
+                $objPHPExcel->setActiveSheetIndex(0) ->setCellValue($colum.'1', $v);
+                $key += 1;
+            }
+
+            $column = 2;
+            $objActSheet = $objPHPExcel->getActiveSheet();
+
+            //print_r($data);exit;
+            foreach($data as $key => $rows){ //行写入
+                $span = ord("A");
+                foreach($rows as $keyName=>$value){// 列写入
+                    $j = chr($span);
+                    $objActSheet->setCellValue($j.$column, $value);
+                    $span++;
+                }
+                $column++;
+            }
+
+            $fileName = iconv("utf-8", "gb2312", $fileName);
+
+            //重命名表
+            //$objPHPExcel->getActiveSheet()->setTitle('test');
+            //设置活动单指数到第一个表,所以Excel打开这是第一个表
+            $objPHPExcel->setActiveSheetIndex(0);
+            ob_end_clean();//清除缓冲区,避免乱码
+            header('Content-Type: application/vnd.ms-excel');
+            header("Content-Disposition: attachment;filename=\"$fileName\"");
+            header('Cache-Control: max-age=0');
+
+            $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+            $objWriter->save('php://output'); //文件通过浏览器下载
+            exit;
+        }
+
     }

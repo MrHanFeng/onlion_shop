@@ -44,9 +44,9 @@ return array(
 /*TP官网发送邮件*/
 /*	'SMTP_SERVER' =>'smtp.163.com',					//邮件服务器
 	'SMTP_PORT' =>'25',								//邮件服务器端口
-	'SMTP_USER_EMAIL' =>'xxx', 	//SMTP服务器的用户邮箱(一般发件人也得用这个邮箱)
-	'SMTP_USER'=>'xxx',			//SMTP服务器账户名
-	'SMTP_PWD'=>'xxx',							//SMTP服务器账户密码
+	'SMTP_USER_EMAIL' =>'18335124662@163.com', 	//SMTP服务器的用户邮箱(一般发件人也得用这个邮箱)
+	'SMTP_USER'=>'18335124662@163.com',			//SMTP服务器账户名
+	'SMTP_PWD'=>'lfygdtmwnhtllhnk',							//SMTP服务器账户密码
 	'SMTP_MAIL_TYPE'=>'HTML',						//发送邮件类型:HTML,TXT(注意都是大写)
 	'SMTP_TIME_OUT'=>30,							//超时时间
 	'SMTP_AUTH'=>true,		*/						//邮箱验证(一般都要开启)
@@ -55,10 +55,10 @@ return array(
 	// // 配置邮件发送服务器
 	'MAIL_HOST' =>'smtp.163.com',//smtp服务器的名称smtp.exmail.qq.com
 	'MAIL_SMTPAUTH' =>TRUE, //启用smtp认证renxiaole66@126.com
-	'MAIL_USERNAME' =>'xxx',//你的邮箱名
-	'MAIL_FROM' =>'xxx',//发件人地址
+	'MAIL_USERNAME' =>'18335124662@163.com',//你的邮箱名
+	'MAIL_FROM' =>'18335124662@163.com',//发件人地址
 	'MAIL_FROMNAME'=>'MR.峰',//发件人姓名
-	'MAIL_PASSWORD' =>'xxx',//邮箱密码
+	'MAIL_PASSWORD' =>'lfygdtmwnhtllhnk',//邮箱密码
 	'MAIL_CHARSET' =>'utf-8',//设置邮件编码
 	'MAIL_ISHTML' =>TRUE, // 是否HTML格式邮件
 );

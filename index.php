@@ -21,8 +21,8 @@
 	define("MO_URL",SITE_URL."Public/Home/mobile/"); //mobile
 
 	define("ADMIN_CSS_URL",SITE_URL."Public/Admin/css/"); //css
-	define("ADMIN_IMG_URL",SITE_URL."Public/Admin/images/"); //css
-	define("ADMIN_JS_URL",SITE_URL."Public/Admin/js/"); //css
+	define("ADMIN_IMG_URL",SITE_URL."Public/Admin/images/"); //img
+	define("ADMIN_JS_URL",SITE_URL."Public/Admin/js/"); //js
 
 
 
