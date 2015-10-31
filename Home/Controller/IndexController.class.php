@@ -47,7 +47,7 @@
 
 	    	// 新品排行
 	    	$info = $goods->field('goods_id,goods_name,goods_price,goods_big_img,goods_small_img')->limit(0,3)->order('goods_create_time desc')->select();
-	    	$this->assign('goods_price',$info);
+	    	$this->assign('goods_price_time',$info);
 		}
 
 

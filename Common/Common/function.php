@@ -22,3 +22,21 @@
         $mail->AltBody = "这是一个纯文本的身体在非营利的HTML电子邮件客户端"; //邮件正文不支持HTML的备用显示
         return($mail->Send());
     }
+
+
+/**
+ *     用于QQ自动登录，API在TP下Library/Vendor/QQAPI放置,记得删除
+ *     不好，换版本后每次得配置文件，QQAPI不通用！
+ */
+    function Login_qq(){
+            Vendor('QQAPI.qqConnectAPI');
+            $qc = new QC();
+            $qc->qq_login();
+            $ret = $qc->get_info();
+            if($ret['ret'] == 0){
+                return $ret;
+            }else{
+                echo "获取失败，请开启调试查看原因";exit;
+            }
+       }
+

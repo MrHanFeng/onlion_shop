@@ -17,27 +17,27 @@
                     <dl>
                         <dt><a href="#">手机类型</a></dt>
                         <dd>     
-                            <a href="{$smarty.const.__MODULE__}/Goods/showlist.html">CDMA手机</a>
-                            <a href="#">GSM手机</a>
-                            <a href="#">3G手机</a>
-                            <a href="#">双模手机</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">CDMA手机</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">GSM手机</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">3G手机</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">双模手机</a>
                         </dd>
                     </dl>
                     <dl>
-                        <dt><a href="#">手机配件</a></dt>
+                        <dt><a href="{$smarty.const.__MODULE__}/Goods/showlist">手机配件</a></dt>
                         <dd>     
-                            <a href="#">充电器</a>
-                            <a href="#">耳机</a>
-                            <a href="#">电池</a>
-                            <a href="#">读卡器和内存卡</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">充电器</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">耳机</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">电池</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">读卡器和内存卡</a>
                         </dd>
                     </dl>
                     <dl>
-                        <dt><a href="#">充值卡</a></dt>
+                        <dt><a href="{$smarty.const.__MODULE__}/Goods/showlist">充值卡</a></dt>
                         <dd>     
-                            <a href="#">小灵通/固话充值卡</a>
-                            <a href="#">移动手机充值卡</a>
-                            <a href="#">联通手机充值卡</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">小灵通/固话充值卡</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">移动手机充值卡</a>
+                            <a href="{$smarty.const.__MODULE__}/Goods/showlist">联通手机充值卡</a>
                         </dd>
                     </dl>
 
@@ -87,7 +87,6 @@
 
                 <div class="itemTit" id="itemHot">
                     <div class="tit">热卖商品</div>
-                    <h2><a href="#" >全部商品</a></h2>
                     <h2 class="h2bg"><a href="#" >GSM手机</a></h2>
                     <h2 class="h2bg"><a href="#" >双模手机</a></h2>
                     <h2 class="h2bg"><a href="#" >充值卡</a></h2>
@@ -99,11 +98,17 @@
                 <!-- <volist name="goods_hot" id="v" key="k" offset="0" length='3'> -->
                 {section name=v loop=$goods_hot max=3 } <!-- step=2 start=0 show=false -->
                     <div class="goodsItem">
-                        <a href="{$smarty.const.__MODULE__}/Goods/detail/goods_id/{$goods_hot[v].goods_id}"><img src="{$smarty.const.IMG_UPLOAD}{$goods_hot[v].goods_small_img}" alt="{$v.goods_name}" class="goodsimg"></a><br />
-                        <p class="f1"><a href="{$smarty.const.__MODULE__}/Goods/detail/goods_id/{$v.goods_id}" title="{$v.goods_name}">{$v.goods_name}</a></p>
-                        <font class="market">￥{$v.goods_price+300}元</font><br />
+                        <a href="{$smarty.const.__MODULE__}/Goods/detail/goods_id/{$goods_hot[v].goods_id}">
+                            <img src="{$smarty.const.IMG_UPLOAD}{$goods_hot[v].goods_small_img}" alt="{$goods_hot[v].goods_name}" class="goodsimg">
+                        </a><br />
+                        <p class="f1">
+                            <a href="{$smarty.const.__MODULE__}/Goods/detail/goods_id/{$goods_hot[v].goods_id}" title="{$goods_hot[v].goods_name}">
+                                {$goods_hot[v].goods_name}
+                            </a>
+                        </p>
+                        <font class="market">￥{$goods_hot[v].goods_price+300}元</font><br />
                         <font class="f1">
-                            ￥{$v.goods_price}元                     </font>
+                            ￥{$goods_hot[v].goods_price}元                     </font>
                     </div>
                     {/section}
                 <!-- </volist> -->
@@ -143,7 +148,6 @@
 
                 <div class="itemTit" id="itemNew">
                     <div class="tit">新品上架</div>
-                    <h2><a href="#" >全部商品</a></h2>
                     <h2 class="h2bg"><a href="#" >GSM手机</a></h2>
                     <h2 class="h2bg"><a href="#" >双模手机</a></h2>
                     <h2 class="h2bg"><a href="#" >充值卡</a></h2>  

@@ -72,8 +72,115 @@
             $this -> redirect('index/index');
         }
 
+        /**
+         * QQ登录
+         */
+        function qq_login(){
 
 
+         /* //方法一，面向过程法
+         //应用的APPID
+            $app_id = "101265030";
+            //应用的APPKEY
+            $app_secret = "7d5e215c1651f14dd0024845899a553e";
+            //成功授权后的回调地址
+            $my_url = "http://www.letsman.com/shop/index.php/Home/User/qq_login";
+
+            //Step1：获取Authorization Code
+            session_start();
+            $code = $_REQUEST["code"];//存放Authorization Code
+            if(empty($code))
+            {
+                //state参数用于防止CSRF攻击，成功授权后回调时会原样带回
+                $_SESSION['state'] = md5(uniqid(rand(), TRUE));
+                //拼接URL
+                $dialog_url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id="
+                    . $app_id . "&redirect_uri=" . urlencode($my_url) . "&state="
+                    . $_SESSION['state'];
+                echo("<script> top.location.href='" . $dialog_url . "'</script>");
+            }
+
+            //Step2：通过Authorization Code获取Access Token
+            if($_REQUEST['state'] == $_SESSION['state'])
+            {
+                //拼接URL
+                $token_url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&"
+                    . "client_id=" . $app_id . "&redirect_uri=" . urlencode($my_url)
+                    . "&client_secret=" . $app_secret . "&code=" . $code;
+                $response = file_get_contents($token_url);
+                if (strpos($response, "callback") !== false)//如果登录用户临时改变主意取消了，返回true!==false,否则执行step3
+                {
+                    $lpos = strpos($response, "(");
+                    $rpos = strrpos($response, ")");
+                    $response  = substr($response, $lpos + 1, $rpos - $lpos -1);
+                    $msg = json_decode($response);
+                    if (isset($msg->error))
+                    {
+                        echo "<h3>error:</h3>" . $msg->error;
+                        echo "<h3>msg  :</h3>" . $msg->error_description;
+                        exit;
+                    }
+                }
+
+                //Step3：使用Access Token来获取用户的OpenID
+                $params = array();
+                parse_str($response, $params);//把传回来的数据参数变量化
+                $graph_url = "https://graph.qq.com/oauth2.0/me?access_token=".$params['access_token'];
+                $str  = file_get_contents($graph_url);
+                 if (strpos($str, "callback") !== false)
+                 {
+                     $lpos = strpos($str, "(");
+                     $rpos = strrpos($str, ")");
+                     $str  = substr($str, $lpos + 1, $rpos - $lpos -1);
+                 }
+                 $user = json_decode($str);//存放返回的数据 client_id  ，openid
+                 if (isset($user->error))
+                 {
+                     echo "<h3>error:</h3>" . $user->error;
+                     echo "<h3>msg  :</h3>" . $user->error_description;
+                     exit;
+                 }
+//                 echo("Hello " . $user->openid);
+//                 echo("Hello " . $params['access_token']);
+//                $user_data_url = " https://graph.qq.com/user/get_user_info?access_token={$params['access_token']}&oauth_consumer_key={$app_id}&openid={$user->openid}&format=json";
+//                $user_data = file_get_contents($user_data_url);
+//                show($user_data);  //当前问题：现在已经授权登陆，如何取得返回的数据
+
+              }
+              else
+              {
+                  echo("The state does not match. You may be a victim of CSRF.");
+              }*/
+
+            /*方法二，若要删除，记得把component/qqauth删除！*/
+//            define(YDR_QQ_APPID,"101265030");
+//            define(YDR_QQ_APPKEY,"7d5e215c1651f14dd0024845899a553e");
+//            define(YDR_QQ_CALLBACK,"http://www.letsman.com/shop/index.php/Home/User/qq_login");
+       /*     $qqauth = new \Component\QQAUTH();
+            echo "<meta charset=\"utf-8\">";
+            $qqauth->token=$params['access_token'];
+            $qqauth->openid=$user->openid;
+// 获得QQ空间资料
+            $result1=$qqauth->get_user_info();
+            $json1=json_decode($result1);
+            $info=$json1->info;
+            if($json1->data==1)
+            {
+                echo "<h1>get_user_info</h1><ul>"
+                    ."<li>QQ空间昵称：{$info->nickname}</li>"
+                    ."<li>QQ空间头像：<img src=\"{$info->figureurl_1}\" /></li>"
+                    ."</ul>";
+            }
+            else
+            {
+                echo "<h1>{$info}</h1>";
+            }*/
+
+
+            /*方法三  面向对象  注意删除时，记得删除thinkPHP下library的QQAUTH，Common/common/function/login_qq*/
+            $data=Login_qq();
+//            show($data);
+        }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
