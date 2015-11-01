@@ -155,8 +155,8 @@
                     //如果该用户原来没有QQ快速登陆过，进行录入信息
                     $re=$this->qq_login_reg(json_decode($user_data),$user->openid);
                     if($re){
-                        show($re);exit;
-                        $_SESSION['user_id']=$re;
+                        $_SESSION['user_id']=$re['user_id'];
+                        $_SESSION['user_username']=$re['username'];
                         $this->redirect('Ucenter/ucenter0');//进入个人中心完善信息
                         exit;
                     }
@@ -188,10 +188,7 @@
             $re=$user->add();
             if($re){
                 $arr['user_id']=$re;
-                $data=M('User')->find($re);
-                show($data);exit;
-                $arr['username']=$username;
-                show($arr);exit;
+                $arr['username']=$user->getFieldByUser_id($re,"username");
                 return $arr;
             }
             return false;

@@ -15,11 +15,15 @@ class UcenterController extends HomeController{
             if($_POST['password']==$_POST['password2']){
                 unset($_POST['password2']);
                 $_POST['password']=$this->md6($_POST['password']);
-                show($_POST);exit;
                 $user_model=D('User');
-                $user_model->create();
-                $re=$user_model->save();
-                $this->if_re($re,array('完善信息成功','Index/index'),array('完善信息失败'));
+//                show($_POST);exit;
+                $re = $user_model->where("user_id={$_POST['user_id']}")->data($_POST)->save();
+//                $user_model->create();
+//                $re=$user_model->save($_POST['user_id']);//这种方法不行？？？？？？？？？？
+//                echo $user_model->getLastSql();exit;
+                $this->if_re($re,array('设置成功，请完善您的个人信息','ucenter4'),array('完善信息失败'));
+            }else{
+                $this->error('两次密码不相同');
             }
         }else{
             $this->display();
@@ -50,7 +54,22 @@ class UcenterController extends HomeController{
         $this->display();
     }
 
-
+    /**
+     * 个人中心会员详细信息
+     */
+    function ucenter4(){
+        $this->check_user_login();
+        $a=D('User');
+        if(!empty($_POST)){
+            $a->create();
+            $re=$a->save();
+            $this->if_re($re,array('会员信息修改成功'),array('会员信息修改失败'));
+        }else{
+            $re=$a->find($_SESSION['user_id']);
+            $this->assign('userinfo',$re);
+            $this->display();
+        }
+    }
 
 
 }

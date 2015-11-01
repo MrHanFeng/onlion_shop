@@ -31,8 +31,8 @@
                                     <input type="hidden" name="order_goods_name" value="{$goods_info.goods_name}">
                                     <input type="hidden" name="order_goods_id" value="{$goods_info.goods_id}">
                                     {if $smarty.session.user_username !=null}
-                                        <input type="hidden" name="order_user_id" value="$smarty.session.user_id">
-                                        <input type="hidden" name="order_user_name" value="$smarty.session.user_username">
+                                        <input type="hidden" name="order_user_id" value="{$smarty.session.user_id}">
+                                        <input type="hidden" name="order_user_name" value="{$smarty.session.user_username}">
                                     {else}
                                         <input type="hidden" name="order_user_id" value="1">
                                         <input type="hidden" name="order_user_name" value="没登陆此为默认值">

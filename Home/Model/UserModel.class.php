@@ -55,5 +55,8 @@ class UserModel extends Model{
         return false;
 
     }
+    function test(){
+        echo 111;
+    }
 
 }

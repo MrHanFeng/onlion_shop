@@ -1,0 +1,148 @@
+{include "../head.html"} 
+
+
+        <div class="block box">
+            <div class="blank"></div>
+            <div id="ur_here">
+                当前位置: <a href="#">首页</a> <code>&gt;</code> 用户中心 
+            </div>
+        </div>
+
+        <div class="blank"></div>
+        <div class="blank"></div>
+
+        <div class="block clearfix">
+            <div class="AreaL">
+                {include "./u_list.html"} 
+            </div>
+
+            <div class="AreaR">
+                <div class="box">
+                    <div class="box_1">
+                        <div class="userCenterBox boxCenterList clearfix" style="">
+                            <h5><span>会员信息</span></h5>
+                            <div class="blank"></div>
+                            <form action="{$smarty.const.__SELF__}" method="post" name="theForm">
+                                <table bgcolor="#dddddd" border="0" cellpadding="5" cellspacing="1" width="100%">
+                                    <tbody><tr>
+                                            <td align="right" bgcolor="#ffffff">故乡：</td>
+                                            <td colspan="3" align="left" bgcolor="#ffffff">
+                                                <select name="" id="selCountries_0" >
+                                                    <option value="0">请选择国家</option>
+                                                    <option value="1" selected="selected">中国</option>
+                                                </select>
+                                                <select name="user_province" id="selProvinces_0">
+                                                    <option value="0">请选择省</option>
+                                                    <option value="北京" selected="selected">北京</option>
+                                                    <option value="安徽">安徽</option>
+                                                    <option value="山西">山西</option>
+                                                    <option value="福建">福建</option>
+                                                    <option value="甘肃">甘肃</option>
+                                                    <option value="广东">广东</option>
+                                                    <option value="广西">广西</option>
+                                                    <option value="贵州">贵州</option>
+                                                    <option value="海南">海南</option>
+                                                    <option value="河北">河北</option>
+                                                    <option value="河南">河南</option>
+                                                    <option value="黑龙江">黑龙江</option>
+                                                    <option value="湖北">湖北</option>
+                                                    <option value="湖南">湖南</option>
+                                                    <option value="吉林">吉林</option>
+                                                    <option value="内蒙古">内蒙古</option>
+                                                    <option value="江苏">江苏</option>
+                                                </select>
+                                                <select name="user_city" id="selCities_0">
+                                                    <option value="0">请选择市</option>
+                                                    <option value="北京" selected="selected">北京</option>
+                                                </select>
+                                                <select name="user_district" id="selDistricts_0">
+                                                    <option value="0">请选择区</option>
+                                                    <option value="500">东城区</option>
+                                                    <option value="501">西城区</option>
+                                                    <option value="502">海淀区</option>
+                                                    <option value="503">朝阳区</option>
+                                                    <option value="504">崇文区</option>
+                                                    <option value="505">宣武区</option>
+                                                    <option value="506">丰台区</option>
+                                                    <option value="507">石景山区</option>
+                                                    <option value="508">房山区</option>
+                                                    <option value="509">门头沟区</option>
+                                                    <option value="510">通州区</option>
+                                                    <option value="511">顺义区</option>
+                                                    <option value="昌平区" selected="selected">昌平区</option>
+                                                    <option value="513">怀柔区</option>
+                                                    <option value="514">平谷区</option>
+                                                    <option value="515">大兴区</option>
+                                                    <option value="516">密云县</option>
+                                                    <option value="517">延庆县</option>
+                                                </select>
+                                                (必填) </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" bgcolor="#ffffff">用户姓名：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="username" class="inputBg" id="consignee_0" value="{$userinfo.username}" type="text" />
+                                                (必填) </td>
+                                            <td align="right" bgcolor="#ffffff">电子邮件地址：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                {$userinfo.user_email}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" bgcolor="#ffffff">爱好：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="user_hobby" class="inputBg"  value="{$userinfo.user_hobby}" type="text" />
+                                                </td>
+                                            <td align="right" bgcolor="#ffffff">性别：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="user_sex" class="inputBg" value="{$userinfo.user_sex}" type="text" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" bgcolor="#ffffff">座右铭：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="user_introduce" class="inputBg" id="address_0" value="{$userinfo.user_introduce}" type="text" />
+                                                (必填)</td>
+                                            <td align="right" bgcolor="#ffffff">邮政编码：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="user_post" class="inputBg" id="zipcode_0" value="{$userinfo.user_post}" type="text" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" bgcolor="#ffffff">QQ：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="user_qq" class="inputBg" id="tel_0" value="{$userinfo.user_qq}" type="text" />
+                                                (必填)</td>
+                                            <td align="right" bgcolor="#ffffff">手机：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="user_tel" class="inputBg" id="mobile_0" value="{$userinfo.user_tel}" type="text" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" bgcolor="#ffffff">注册时间：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                {$userinfo.user_create_time|date_format:'%Y-%m-%d %H:%M:%S'}
+                                            </td>
+                                            <td align="right" bgcolor="#ffffff">上次登录时间：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                {$userinfo.user_last_time|date_format:'%Y-%m-%d %H:%M:%S'}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td align="right" bgcolor="#ffffff">&nbsp;</td>
+                                            <td colspan="3" align="center" bgcolor="#ffffff">
+                                                <input type="hidden" name="user_id" value="{$userinfo.user_id}">
+                                                <input  class="bnt_blue_1" value="确认修改" type="submit" />
+                                                <input name="button" class="bnt_blue" value="删除" type="button" />
+                                                <!--<input name="act" value="act_edit_address" type="hidden" />-->
+                                                <!--<input name="address_id" value="3" type="hidden" />-->
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {include "../foot.html"} 
