@@ -94,12 +94,9 @@
             unset($_POST['y']);//提交的表单多出来的数据，待核实
 //            show($_POST);echo "<hr>";
             $order=D('Order');
-
             while(list($k[],$v[])=each($_POST)){
 //                show($k);show($v);echo "<hr>";最后一次会多出一个空，因为WHILE的判断，为空的时候，判断了，就赋值
             }
-
-
             $data= array_combine($k,$v);
             array_pop($data);
 //            show($data);
@@ -107,7 +104,6 @@
 //            show($data);
 //            array_push($arr,'te');
 //            show($data);
-
             $data['order_sn']=date('YmdHis',time())+rand(100,999);//生成订单号
             $data['order_create_time']=time();//订单生成日期
             $order->create($data);

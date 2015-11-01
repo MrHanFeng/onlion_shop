@@ -76,15 +76,12 @@
          * QQ登录
          */
         function qq_login(){
-
-
-         /* //方法一，面向过程法
-         //应用的APPID
+            //应用的APPID
             $app_id = "101265030";
             //应用的APPKEY
             $app_secret = "7d5e215c1651f14dd0024845899a553e";
-            //成功授权后的回调地址
-            $my_url = "http://www.letsman.com/shop/index.php/Home/User/qq_login";
+            //【成功授权】后的回调地址，即此地址在腾讯的信息中有储存
+            $my_url = "http://www.letsman.com/buy_tp/shop/index.php/Home/User/qq_login";
 
             //Step1：获取Authorization Code
             session_start();
@@ -101,7 +98,7 @@
             }
 
             //Step2：通过Authorization Code获取Access Token
-            if($_REQUEST['state'] == $_SESSION['state'])
+            if($_REQUEST['state'] == $_SESSION['state'] || 1)
             {
                 //拼接URL
                 $token_url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&"
@@ -127,62 +124,79 @@
                 parse_str($response, $params);//把传回来的数据参数变量化
                 $graph_url = "https://graph.qq.com/oauth2.0/me?access_token=".$params['access_token'];
                 $str  = file_get_contents($graph_url);
-                 if (strpos($str, "callback") !== false)
-                 {
-                     $lpos = strpos($str, "(");
-                     $rpos = strrpos($str, ")");
-                     $str  = substr($str, $lpos + 1, $rpos - $lpos -1);
-                 }
-                 $user = json_decode($str);//存放返回的数据 client_id  ，openid
-                 if (isset($user->error))
-                 {
-                     echo "<h3>error:</h3>" . $user->error;
-                     echo "<h3>msg  :</h3>" . $user->error_description;
-                     exit;
-                 }
-//                 echo("Hello " . $user->openid);
-//                 echo("Hello " . $params['access_token']);
-//                $user_data_url = " https://graph.qq.com/user/get_user_info?access_token={$params['access_token']}&oauth_consumer_key={$app_id}&openid={$user->openid}&format=json";
-//                $user_data = file_get_contents($user_data_url);
-//                show($user_data);  //当前问题：现在已经授权登陆，如何取得返回的数据
+                if (strpos($str, "callback") !== false)
+                {
+                    $lpos = strpos($str, "(");
+                    $rpos = strrpos($str, ")");
+                    $str  = substr($str, $lpos + 1, $rpos - $lpos -1);
+                }
+                $user = json_decode($str);//存放返回的数据 client_id  ，openid
+                if (isset($user->error))
+                {
+                    echo "<h3>error:</h3>" . $user->error;
+                    echo "<h3>msg  :</h3>" . $user->error_description;
+                    exit;
+                }
 
-              }
-              else
-              {
-                  echo("The state does not match. You may be a victim of CSRF.");
-              }*/
+                //Step4：使用Access Token来获取用户的信息
+                $user_data_url = "https://graph.qq.com/user/get_user_info?access_token={$params['access_token']}&oauth_consumer_key={$app_id}&openid={$user->openid}&format=json";
+                $user_data = file_get_contents($user_data_url);//此为获取到的user信息
+                $user_model=D('User')->qq_user($user->openid);
+//                show($user_model);exit;
+                if($user_model){
+                    //已经登陆过，进行SESSION操作
+//                    $_SESSION['user_email']=$user_model[0]['user_email'];
+                    $_SESSION['user_username']=$user_model[0]['username'];
+                    $_SESSION['user_id']=$user_model[0]['user_id'];
+//                    show($_SESSION);exit;
+                    $this->redirect('Index/index');//进入首页
+                    exit;
+                }else{
+                    //如果该用户原来没有QQ快速登陆过，进行录入信息
+                    $re=$this->qq_login_reg(json_decode($user_data),$user->openid);
+                    if($re){
+                        show($re);exit;
+                        $_SESSION['user_id']=$re;
+                        $this->redirect('Ucenter/ucenter0');//进入个人中心完善信息
+                        exit;
+                    }
+                    $this->error('快速登录失败，信息有误',U("login"));
+                }
 
-            /*方法二，若要删除，记得把component/qqauth删除！*/
-//            define(YDR_QQ_APPID,"101265030");
-//            define(YDR_QQ_APPKEY,"7d5e215c1651f14dd0024845899a553e");
-//            define(YDR_QQ_CALLBACK,"http://www.letsman.com/shop/index.php/Home/User/qq_login");
-       /*     $qqauth = new \Component\QQAUTH();
-            echo "<meta charset=\"utf-8\">";
-            $qqauth->token=$params['access_token'];
-            $qqauth->openid=$user->openid;
-// 获得QQ空间资料
-            $result1=$qqauth->get_user_info();
-            $json1=json_decode($result1);
-            $info=$json1->info;
-            if($json1->data==1)
-            {
-                echo "<h1>get_user_info</h1><ul>"
-                    ."<li>QQ空间昵称：{$info->nickname}</li>"
-                    ."<li>QQ空间头像：<img src=\"{$info->figureurl_1}\" /></li>"
-                    ."</ul>";
             }
             else
             {
-                echo "<h1>{$info}</h1>";
-            }*/
-
-
-            /*方法三  面向对象  注意删除时，记得删除thinkPHP下library的QQAUTH，Common/common/function/login_qq*/
-            $data=Login_qq();
-//            show($data);
+                echo("The state does not match. You may be a victim of CSRF.");
+            }
+        }
+/*--------------------------------------------------------------------------------------------------------------------*/
+        /**
+         * QQ快速登录的注册,插入数据
+         * @param $data ，登录的QQ用户所有信息
+         * @param $open_id ,对应唯一的qq的OPENID
+         * @return bool,成功返回true 失败false
+         */
+        function qq_login_reg($u_data,$open_id){
+            $data['user_qq_openid']=$open_id;
+            $data['username']=$u_data->nickname;//昵称
+            $data['user_sex']=$u_data->gender;//性别
+            $data['identify']=1;
+            $data['user_create_time']=time();
+            $data['user_last_time']=time();
+            $user=D('User');
+            $user->create($data);
+            $re=$user->add();
+            if($re){
+                $arr['user_id']=$re;
+                $data=M('User')->find($re);
+                show($data);exit;
+                $arr['username']=$username;
+                show($arr);exit;
+                return $arr;
+            }
+            return false;
         }
 
-/*--------------------------------------------------------------------------------------------------------------------*/
 
          //发送邮件，用户注册
             function register(){

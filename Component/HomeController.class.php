@@ -34,4 +34,13 @@ class HomeController extends Controller{
             $this->error($error[0],U($error[1]));
         }
     }
+
+    /**
+     * 检测会员用户是否登录，没有登录跳转登录页面
+     */
+    function check_user_login(){
+        if( empty($_SESSION['user_id'])  ){
+            $this->success("请先登录",U('User/login'));
+        }
+    }
 }

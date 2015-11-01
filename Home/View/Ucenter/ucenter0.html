@@ -1,0 +1,85 @@
+{include "../head.html"} 
+
+
+        <div class="block box">
+            <div class="blank"></div>
+            <div id="ur_here">
+                当前位置: <a href="#">首页</a> <code>&gt;</code> 用户中心 
+            </div>
+        </div>
+
+        <div class="blank"></div>
+        <div class="blank"></div>
+
+        <div class="block clearfix">
+            <div class="AreaL">
+                <div class="box">
+                    <div class="box_1">
+                        <div class="userCenterBox">
+                            <div class="userMenu">
+                                <a href="{$smarty.const.__CONTROLLER__}/ucenter1" ><img src="{$smarty.const.IMG_URL}u1.gif" /> 欢迎页</a>
+                                <a href="{$smarty.const.__CONTROLLER__}/ucenter4"><img src="{$smarty.const.IMG_URL}u2.gif" /> 用户信息</a>
+                                <a href="{$smarty.const.__CONTROLLER__}/ucenter3"><img src="{$smarty.const.IMG_URL}u3.gif" /> 我的订单</a>
+                                <a href="{$smarty.const.__MODULE__}/Ucenter/ucenter2" class="curs"><img src="{$smarty.const.IMG_URL}u4.gif" /> 收货地址</a>
+                                <a href="#"><img src="{$smarty.const.IMG_URL}u5.gif" /> 我的收藏</a>
+                                <a href="#"><img src="{$smarty.const.IMG_URL}u6.gif" /> 我的留言</a>
+                                <a href="#"><img src="{$smarty.const.IMG_URL}u7.gif" /> 我的标签</a>
+                                <a href="#"><img src="{$smarty.const.IMG_URL}u8.gif" /> 缺货登记</a>
+                                <a href="#"><img src="{$smarty.const.IMG_URL}u9.gif" /> 我的红包</a>
+                                <a href="#"><img src="{$smarty.const.IMG_URL}u10.gif" /> 我的推荐</a>
+                                <a href="#"><img src="{$smarty.const.IMG_URL}u11.gif"> 我的评论</a>
+                                <!--<a href="user.php?act=group_buy">我的团购</a>-->
+                                <a href="#"><img src="{$smarty.const.IMG_URL}u12.gif" /> 跟踪包裹</a>
+                                <a href="#"><img src="{$smarty.const.IMG_URL}u13.gif" /> 资金管理</a>
+                                <a href="#" style="background: none repeat scroll 0% 0% transparent; text-align: right; margin-right: 10px;"><img src="{$smarty.const.IMG_URL}bnt_sign.gif" /></a>
+                            </div>      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="AreaR">
+                <div class="box">
+                    <div class="box_1">
+                        <div class="userCenterBox boxCenterList clearfix" style="">
+                            <h5><span>请完善信息</span></h5>
+                            <div class="blank"></div>
+                            <form action="{$smarty.const.__SELF__}" method="post" name="theForm">
+                                <table bgcolor="#dddddd" border="0" cellpadding="5" cellspacing="1" width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td align="right" bgcolor="#ffffff">登录邮箱：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="user_email" class="inputBg" id="consignee_0" value="" type="text" />
+                                                (必填) </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td align="right" bgcolor="#ffffff">登录密码：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="password" class="inputBg" id="address_0" value="" type="password" />
+                                                (必填)</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td align="right" bgcolor="#ffffff">确认密码：</td>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <input name="password2" class="inputBg" id="zipcode_0" value="" type="password2" /></td>
+                                                (必填)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="hidden" name="user_id" value="{$smarty.session.user_id}">
+                                                <input type="submit" value="提交">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {include "../foot.html"} 
