@@ -17,9 +17,9 @@ class UcenterController extends HomeController{
                 $_POST['password']=$this->md6($_POST['password']);
                 $user_model=D('User');
 //                show($_POST);exit;
-                $re = $user_model->where("user_id={$_POST['user_id']}")->data($_POST)->save();
-//                $user_model->create();
-//                $re=$user_model->save($_POST['user_id']);//这种方法不行？？？？？？？？？？
+//                $re = $user_model->where("user_id={$_POST['user_id']}")->data($_POST)->save();
+                $user_model->create();
+                $re=$user_model->save();
 //                echo $user_model->getLastSql();exit;
                 $this->if_re($re,array('设置成功，请完善您的个人信息','ucenter4'),array('完善信息失败'));
             }else{
@@ -51,7 +51,25 @@ class UcenterController extends HomeController{
      */
     function ucenter3(){
         $this->check_user_login();
-        $this->display();
+        $a=D('Order');
+        if(!empty($_POST)){
+            $a->create();
+            $re=$a->save();
+            $this->if_re($re,array('会员信息修改成功'),array('会员信息修改失败'));
+        }else{
+//            $order_id=$a->getFieldByOrder_user_id($_SESSION['user_id'],'order_id');
+            $ids=$a->field("order_id")->where("order_user_id={$_SESSION['user_id']}")->select();
+            $order_id="";
+            foreach($ids as $v){
+                $order_id .=$v['order_id'].",";
+            }
+            $order_id=substr($order_id,0,-1);
+            $order_info=$a->select($order_id);//查询出该用户所有订单
+//            show($order_info);exit;
+            $this->assign('order_info',$order_info);
+            $this->assign('order_num',count($order_info));
+            $this->display();
+        }
     }
 
     /**

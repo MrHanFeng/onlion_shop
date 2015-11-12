@@ -119,6 +119,8 @@ class UserController extends AdminController{
         $user=D('User');
         $info=$user->user_list_fn($_GET['user_id']);
         if($_POST){
+            $_POST['user_money']= number_format((int)$_POST['user_money'],2);
+//            show($_POST);exit;
             $user->create();
             $re=$user->save();
             $this->if_re($re,array('会员修改成功','user_list'),array('会员修改失败',''));
@@ -132,11 +134,32 @@ class UserController extends AdminController{
         }
     }
 
-
+    /**
+     * 用户删除操作
+     */
     function user_del(){
         $user=M('User');
         $re=$user->where("user_id={$_GET['user_id']}")->data("user_status=delete")->save();
 //        echo $user->getLastSql();exit;
         $this->if_re($re,array('会员删除成功','user_list'),array('会员删除失败','user_list'));
     }
+
+    /**
+     * 用户冻结操作
+     */
+    function user_freeze(){
+        $user=M('User');
+        $re=$user->where("user_id={$_GET['user_id']}")->data("user_status=freeze")->save();
+        $this->if_re($re,array('会员冻结成功','user_list'),array('会员冻结失败','user_list'));
+    }
+    /**
+     * 用户重置密码操作
+     */
+    function user_repwd(){
+        $user=M('User');
+        $new_pwd=$this->md6('123456789');
+        $re=$user->where("user_id={$_GET['user_id']}")->data("password={$new_pwd}")->save();
+        $this->if_re($re,array('重置成功，新密码：123456789','user_list'),array('重置失败','user_list'));
+    }
+
 }

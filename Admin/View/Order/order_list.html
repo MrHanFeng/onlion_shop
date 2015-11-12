@@ -58,7 +58,7 @@
                         <td>{$v.order_remarks}</td>
                         <td>
                             <a href="{$smarty.const.__CONTROLLER__}/order_update/order_id/{$v.order_id}">修改</a>
-                            <a href='{$smarty.const.__CONTROLLER__}/order_delete?order_id={$v.order_id}' onclick="return confirm('确定要删除？');">删除</a>
+                            <a href='{$smarty.const.__CONTROLLER__}/order_delete/order_id/{$v.order_id}' onclick="return confirm('确定要删除？');">删除</a>
                         </td>
                     </tr>
                 {/foreach}

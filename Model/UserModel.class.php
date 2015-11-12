@@ -6,11 +6,6 @@
 
 		// 是否批处理验证
 		protected $patchValidate    =   true;
-		public $test='test';
-
-
-
-
 		// 实现表单项目验证
 		// 通过重写父类属性_validate实现表单验证
     	protected $_validate     =   array(

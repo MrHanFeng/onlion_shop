@@ -34,20 +34,29 @@
                                         <td>订单状态</td>
                                         <td>操作</td>
                                     </tr>
+                                {foreach $order_info as $v}
                                     <tr>
-                                        <td align="center"><a href="./user.php?act=order_detail&amp;order_id=20" class="f6">2012100649488</a></td>
-                                        <td align="center">2012-10-06 20:08:43</td>
-                                        <td align="right">￥5020.00元</td>
-                                        <td align="center">未确认,未付款,未发货</td>
-                                        <td align="center"><font class="f6"><a href="#" >取消订单</a></font></td>
+
+                                        <td align="center"><a href="" class="f6">{$v.order_sn}</a></td>
+                                        <td align="center">{$v.order_create_time|date_format:"%Y-%m-%d %H:%M:%S "}</td>
+                                        <td align="right">￥{$v.order_amount}.00元</td>
+                                        <td align="center">{$v.order_status}</td>
+                                        {if $v.order_status=="已发货"}
+                                        <td align="center"><font class="f6"><a href="{$smarty.const.__MODULE__}/Order/order_confirm/order_id/{$v.order_id}" >确认收货</a></font></td>
+                                        {elseif $v.order_status=="已完成"}
+                                        <td align="center"><font class="f6">已完成</font></td>
+                                        {else}
+                                        <td align="center"><font class="f6"><a href="{$smarty.const.__ROOT__}/Admin/Order/order_delete/order_id/{$v.order_id}" >取消订单</a></font></td>
+                                        {/if}
                                     </tr>
+                                {/foreach}
                                 </tbody></table>
                             <div class="blank5"></div>
 
                             <form action="/user.php" method="get">
 
                                 <div id="pager" class="pagebar">
-                                    <span class="f_l " style="margin-right: 10px;">总计 <b>1</b>  个记录</span>
+                                    <span class="f_l " style="margin-right: 10px;">总计 <b>{$order_num}</b>  个记录</span>
 
                                 </div>
 
@@ -63,7 +72,7 @@
                                             <td align="left" width="12%"><select name="to_order">
                                                     <option selected="selected" value="0">请选择...</option>
 
-                                                    <option value="2012100649488">2012100649488</option>
+                                                    <option value="2015100649488">2012100649488</option>
                                                 </select></td>
                                             <td align="right" width="19%">从订单:</td>
                                             <td align="left" width="11%"><select name="from_order">

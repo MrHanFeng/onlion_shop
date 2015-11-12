@@ -39,7 +39,7 @@ class HomeController extends Controller{
      * 检测会员用户是否登录，没有登录跳转登录页面
      */
     function check_user_login(){
-        if( empty($_SESSION['user_id'])  ){
+        if( empty($_SESSION['user_id']) || empty($_SESSION['user_username']) ){
             $this->success("请先登录",U('User/login'));
         }
     }

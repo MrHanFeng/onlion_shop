@@ -65,7 +65,7 @@
 
 
         //        购物车页面
-        function gwc1(){
+        function gwc_show(){
             $order=D('Goods');
             $goods_info=$order->goods_info($_POST['goods_id']);
             if($goods_info){
@@ -77,7 +77,7 @@
             $this->display();
         }
         //       下订单页面
-        function gwc2(){
+        function gwc_confirm(){
             $order=D('Goods');
             $goods_info=$order->goods_info($_POST['goods_id']);
             if($goods_info){
@@ -108,14 +108,16 @@
             $data['order_create_time']=time();//订单生成日期
             $order->create($data);
             $re=$order->add();
-            $this->last_insert_id=$re;
-            $this->if_re($re,array('添加订单成功','gwc3'),array('添加订单失败',''));
+            echo $this->last_insert_id=$re;
+            $this->if_re($re,array('添加订单成功','gwc_success'),array('添加订单失败',''));
         }
 
         //        成功页面
-        function gwc3(){
+        function gwc_success(){
             $info=D('Admin/Order');
-           $data=$info->order_info($this->last_insert_id);
+            $this->last_insert_id;//为什么ID号复制不过来？？？？？？？？
+//            exit;
+            $data=$info->order_info($this->last_insert_id);
             $this->assign('order_info',$data);
             $this->display();
         }

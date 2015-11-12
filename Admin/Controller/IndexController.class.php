@@ -14,7 +14,6 @@
 
 		// 展现后台头部页面
 		function head(){
-
 			$this -> display();
 		}
 
