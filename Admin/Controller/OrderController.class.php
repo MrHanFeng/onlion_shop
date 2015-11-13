@@ -94,6 +94,9 @@
         public function order_update($order_id){
             $order=D('order');
             if(!empty($_POST)){
+                $_POST['order_send_time']=$_POST['order_status']=="已发货"?time():"";
+//                show($_POST);exit;
+
                 $order->create();
                 $re=$order->save();
                 $this->if_re($re,array('修改订单成功','order_list'),array('修改订单失败','order_list'));

@@ -45,8 +45,11 @@
                                         <td align="center"><font class="f6"><a href="{$smarty.const.__MODULE__}/Order/order_confirm/order_id/{$v.order_id}" >确认收货</a></font></td>
                                         {elseif $v.order_status=="已完成"}
                                         <td align="center"><font class="f6">已完成</font></td>
-                                        {else}
-                                        <td align="center"><font class="f6"><a href="{$smarty.const.__ROOT__}/Admin/Order/order_delete/order_id/{$v.order_id}" >取消订单</a></font></td>
+                                        {elseif $v.order_status=="取消"}
+                                        <td align="center"><font class="f6">已取消</font></td>
+                                        {elseif $v.order_status=="待付款"}
+                                        <td align="center"><font class="f6"><a href="{$smarty.const.__MODULE__}/Order/order_pay/order_id/{$v.order_id}" >我要付款</a></font></td>
+                                        <td align="center"><font class="f6"><a href="{$smarty.const.__MODULE__}/Order/order_delete/order_id/{$v.order_id}" >取消订单</a></font></td>
                                         {/if}
                                     </tr>
                                 {/foreach}
@@ -57,7 +60,6 @@
 
                                 <div id="pager" class="pagebar">
                                     <span class="f_l " style="margin-right: 10px;">总计 <b>{$order_num}</b>  个记录</span>
-
                                 </div>
 
                             </form>

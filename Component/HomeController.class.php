@@ -43,4 +43,34 @@ class HomeController extends Controller{
             $this->success("请先登录",U('User/login'));
         }
     }
+
+    /**
+     * 设置SESSION
+     *  @param $name，SESSION的KEY，若为数组，其key与value分别对应SESSION的key和value
+     *  @param $value ，SESSION的值
+     *  @return bool ，$name是数组，成功会返回true
+     */
+    function set_order_session($name,$value=""){
+        if(is_array($name)){
+            foreach($name as $k=>$v){
+                $_SESSION[$k]=$v;
+            }
+            return true;
+        }
+        $_SESSION[$name]=$value;
+    }
+
+    /**
+     * 返回要获取的SESSIO值
+     * @param $name
+     * @return bool  成功返回数据，不存在返回false
+     */
+    function get_session($name){
+        if(isset($_SESSION[$name])){
+            return $_SESSION[$name];
+        }
+        return false;
+    }
+
+
 }

@@ -108,16 +108,16 @@
             $data['order_create_time']=time();//订单生成日期
             $order->create($data);
             $re=$order->add();
-            echo $this->last_insert_id=$re;
+            $this->set_session("order_sn",$re);
             $this->if_re($re,array('添加订单成功','gwc_success'),array('添加订单失败',''));
         }
 
         //        成功页面
         function gwc_success(){
             $info=D('Admin/Order');
-            $this->last_insert_id;//为什么ID号复制不过来？？？？？？？？
+            $order_id=$this->get_session("order_sn");
 //            exit;
-            $data=$info->order_info($this->last_insert_id);
+            $data=$info->order_info($order_id);
             $this->assign('order_info',$data);
             $this->display();
         }

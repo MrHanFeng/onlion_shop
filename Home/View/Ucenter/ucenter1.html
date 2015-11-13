@@ -20,18 +20,20 @@
 
                             <font class="f5"><b class="f4">{$smarty.session.user_username}</b> 欢迎您回到 HOFO商城！</font><br />
                             <div class="blank"></div>
-                            您的上一次登录时间: 2015-11-06 20:12:04<br />
+                            您的上一次登录时间: {$user_info.user_last_time|date_format:"%Y-%m-%d %H:%M:%S "}<br />
                             <div class="blank5"></div>
                             您的等级是 注册用户  ,您还差 10000 积分达到 vip <br />
                             <div class="blank5"></div>
-                            您还没有通过邮件认证 <a href="#" style="color: rgb(0, 107, 208);">点此发送认证邮件</a><br />
+                            {if $user_info.identify==0}
+                            您还没有通过邮件认证 <a href="{$smarty.const.__MODULE__}/User/ucenter_register" style="color: rgb(0, 107, 208);">点此发送认证邮件</a><br />
+                            {/if}
                             <div style="margin: 5px 0pt; border: 1px solid rgb(247, 221, 152); padding: 10px 20px; background-color: rgb(255, 250, 213);">
                                 <img src="{$smarty.const.IMG_URL}note.gif" alt="note" />&nbsp;用户中心公告！           </div>
                             <br /><br />
                             <div class="f_l" style="width: 350px;">
                                 <h5><span>您的账户</span></h5>
                                 <div class="blank"></div>
-                                余额:<a href="#" style="color: rgb(0, 107, 208);">￥0.00元</a><br />
+                                余额:<a href="#" style="color: rgb(0, 107, 208);">￥{$user_info.user_money}元</a><br />
                                 红包:<a href="#" style="color: rgb(0, 107, 208);">共计 0 个,价值 ￥0.00元</a><br />
                                 积分:0积分<br />
                             </div>

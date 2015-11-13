@@ -240,20 +240,7 @@
 
                         /*add()添加成功,发送邮件*/
                         if($rst){
-                        $message=<<<str
-                        你好！$_POST[user_email]
-                        <h2>欢迎注册MR.峰网站</h2>
-                        请点击如下地址激活帐号:<br/><br/>
-                        <a href="http://localhost/buy_tp/shop/index.php/Home/User/register_finish/user_email/$_POST[user_email]/code/$code">
-                        http://localhost/buy_tp/shop/index.php/Home/User/register_finish/user_email/$_POST[user_email]/code/$code</a>
-                        <br/><br/>
-str;
-                        /*发送邮件*/
-                        if(SendMail("$_POST[user_email]",'欢迎注册峰峰购物网站',"$message")){
-                                $this->success('发送成功，请激活后登录',U('login'));
-                            }else{
-                                $this->error('发送失败');
-                            }
+                            $this->email_jihuo($_POST['user_email'],$code);
                         }else{//add()失败
                             // echo "error";
                             $this->error('注册失败',U('register'));
@@ -261,6 +248,41 @@ str;
                     }
                 }
                 $this->display();
+            }
+
+        function ucenter_register(){
+//            show($_SESSION);
+            $num = rand(100000,999999);
+            $code = md5($num);
+            $user=M('User');
+            $data['code']=$code;
+            $user->where("user_id={$_SESSION['user_id']}")->save($data);//把CODE存入数据库
+            $this->email_jihuo($_SESSION['user_email'],$code,"Ucenter/ucenter1");
+        }
+
+        /**
+         * 发送激活邮件
+         * @param $user_email ，需要发送的邮件地址
+         * @param $code ，防伪编码
+         * @param $to,默认跳转到登录页面
+         *  成功跳转到指定页面
+         *  失败跳到注册界面
+         */
+            private function email_jihuo($user_email,$code,$to="login"){
+                $message=<<<str
+                        你好！$user_email
+                        <h2>欢迎注册MR.峰网站</h2>
+                        请点击如下地址激活帐号:<br/><br/>
+                        <a href="http://localhost/buy_tp/shop/index.php/Home/User/register_finish/user_email/$user_email/code/$code">
+                        http://localhost/buy_tp/shop/index.php/Home/User/register_finish/user_email/$user_email/code/$code</a>
+                        <br/><br/>
+str;
+                /*发送邮件*/
+                if(SendMail("$user_email",'欢迎注册峰峰购物网站',"$message")){
+                    $this->success('发送成功，请激活后登录',U($to));
+                }else{
+                    $this->error('发送失败',U("register"));
+                }
             }
 
 
