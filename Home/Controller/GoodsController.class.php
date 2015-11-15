@@ -54,8 +54,12 @@
 
             $this -> display();
         }
+
         //商品详细信息
         function detail($goods_id){
+//            unset( $_SESSION['shop_car_num']);
+//            unset( $_SESSION['goods_id']);
+//            unset( $_SESSION['shop_car_price']);
             $goods = D('goods')->find($goods_id);
             $brand = D('brand')->find($goods['goods_brand_id']);//查询该商品的品牌
             $this->assign('goods_info',$goods);
@@ -63,19 +67,45 @@
             $this -> display();
         }
 
-
         //        购物车页面
         function gwc_show(){
+            show($_POST);
             $order=D('Goods');
-            $goods_info=$order->goods_info($_POST['goods_id']);
+            if(!empty($_POST['goods_id'])){
+                //如果是通过商品详情页面添加过来的
+                $goods_price=$_POST['number']*$_POST['goods_price'];//当前商品的价钱
+                if($_SESSION['goods_id']){
+                    //如果该商品以前已经加入过，不计入
+                    $goods_id=$_SESSION['goods_id'].",".$_SESSION['goods_id'];
+                }else{
+                    //若没有加入
+                    $goods_id=$_POST['goods_id'];//存储所有商品的ID
+                }
+                echo $goods_id;
+                $goods_num_all=$_SESSION['shop_car_num'] ? $_POST['number']+@$_SESSION['shop_car_num'] : $_POST['number'];//存储购物车内商品总数量
+                $goods_price_all=$_SESSION['shop_car_price'] ? $goods_price+@$_SESSION['shop_car_price'] : $goods_price;//存储购物车内商品总价格
+            }else{
+                //如果点击查看购物车进入
+                $goods_id = $_SESSION['goods_id'];
+                $goods_num_all = $_SESSION['shop_car_num'];
+                $goods_price_all = $_SESSION['goods_price_all'];
+            }
+             $goods_info=$order->select($goods_id);
+            show($goods_info);
+
             if($goods_info){
-               $this->assign('goods_info',$goods_info);
+                $_SESSION['shop_car_num']=$goods_num_all;//购物车内商品总数量
+                $_SESSION['goods_id']= $goods_id;//商品ID存入SESSION
+                $_SESSION['goods_price_all']= $goods_price_all;//总价钱存入SESSION
+                $this->assign('goods_info',$goods_info);
             }else{
                 echo "查询错误";
             }
-            $this->assign('number',$_POST['number']);
+            $this->assign('number',$goods_num_all);//把当前购物车总数量传输
+            $this->assign('number',$goods_price_all);//把当前购物车总价传输
             $this->display();
         }
+
         //       下订单页面
         function gwc_confirm(){
             $order=D('Goods');
@@ -88,6 +118,7 @@
             $this->assign('number',$_POST['goods_num']);
             $this->display();
         }
+
         //      订单处理
         function do_order(){
             unset($_POST['x']);
@@ -103,21 +134,21 @@
 //            array_unshift($arr,'te');
 //            show($data);
 //            array_push($arr,'te');
-//            show($data);
+//            show($data);exit;
             $data['order_sn']=date('YmdHis',time())+rand(100,999);//生成订单号
             $data['order_create_time']=time();//订单生成日期
             $order->create($data);
             $re=$order->add();
-            $this->set_session("order_sn",$re);
+            $this->set_order_session($re);
             $this->if_re($re,array('添加订单成功','gwc_success'),array('添加订单失败',''));
         }
 
         //        成功页面
         function gwc_success(){
             $info=D('Admin/Order');
-            $order_id=$this->get_session("order_sn");
+            $order_sn=$this->get_order_session();
 //            exit;
-            $data=$info->order_info($order_id);
+            $data=$info->order_info($order_sn);
             $this->assign('order_info',$data);
             $this->display();
         }

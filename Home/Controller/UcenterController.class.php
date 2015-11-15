@@ -48,9 +48,10 @@ class UcenterController extends HomeController{
     function ucenter2(){
         $this->check_user_login();
         $accept=M('User_consignee');
-//        $consinee_info=$accept->getFieldByConsignee_user_id($_SESSION['user_id']);//?????为何返回ID主键值不是全部值
-        $consinee_info=$accept->where("consignee_user_id={$_SESSION['user_id']}")->find();
-//        show($consinee_info);
+//        $consinee_info=$accept->getFieldByConsignee_user_id($_SESSION['user_id'],'Consignee_user_id,Consignee_id');//返回ID主键值
+        $consinee_info=$accept->getByConsignee_user_id($_SESSION['user_id']);//返回全部值
+//        $consinee_info=$accept->where("consignee_user_id={$_SESSION['user_id']}")->find();
+//        show($consinee_info);exit;
 //        echo $accept->getLastSql();
         $this->assign("accept_info",$consinee_info);
         $this->display();

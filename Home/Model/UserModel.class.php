@@ -13,8 +13,8 @@ class UserModel extends Model{
     // 通过重写父类属性_validate实现表单验证
     protected $_validate     =   array(
 //        array('username','require','用户名必须填写'),
-//        array('password','require','密码必须填写'),
-//        array('password2','require','确认密码密码必须填写'),
+        array('password','require','密码必须填写'),
+        array('password2','require','确认密码密码必须填写'),
 //        array('password2','password','两次密码输入不相同','0','confirm'),	//比较应用
 //        array('user_email','email','请输入正确的Email'),
         // array('user_qq','/^[1-9]\d{4,9}$/','请输入5-10位的QQ数字号码'),		//正则应用

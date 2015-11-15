@@ -45,7 +45,7 @@
                                 <td align="right">￥{$goods_info.goods_price}.00元</td>
                                 <td align="right">
                                     {$number}
-                                    <input type="hidden" value="{$number}" name="order_amount">
+                                    <input type="hidden" value="{$goods_info.goods_price*$number}" name="order_amount">
                                 </td>
                                 <td align="right">￥{$goods_info.goods_price*$number}.00元</td>
                             </tr>

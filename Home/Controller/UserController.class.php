@@ -174,13 +174,13 @@
          * QQ快速登录的注册,插入数据
          * @param $data ，登录的QQ用户所有信息
          * @param $open_id ,对应唯一的qq的OPENID
-         * @return bool,成功返回true 失败false
+         * @return bool,成功返回$arr 失败false
          */
         function qq_login_reg($u_data,$open_id){
             $data['user_qq_openid']=$open_id;
             $data['username']=$u_data->nickname;//昵称
             $data['user_sex']=$u_data->gender;//性别
-            $data['identify']=1;
+            $data['identify']=0;
             $data['user_create_time']=time();
             $data['user_last_time']=time();
             $user=D('User');
@@ -189,6 +189,7 @@
             if($re){
                 $arr['user_id']=$re;
                 $arr['username']=$user->getFieldByUser_id($re,"username");
+                $this->ucenter_register();
                 return $arr;
             }
             return false;
@@ -302,7 +303,6 @@ str;
 /*以下函数皆为【找回密码】的相关函数*/
             //填写找回邮箱页面
             function email(){
-
                 $this->display();
             }
             //填完邮件后 1判断邮箱是否存在 2若存在发送找回密码邮件

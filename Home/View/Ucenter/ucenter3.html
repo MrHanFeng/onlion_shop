@@ -41,15 +41,17 @@
                                         <td align="center">{$v.order_create_time|date_format:"%Y-%m-%d %H:%M:%S "}</td>
                                         <td align="right">￥{$v.order_amount}.00元</td>
                                         <td align="center">{$v.order_status}</td>
-                                        {if $v.order_status=="已发货"}
+                                        {if $v.order_status=="待付款"}
+                                        <td align="center"><font class="f6"><a href="{$smarty.const.__MODULE__}/Order/order_pay/order_id/{$v.order_id}" >我要付款</a></font></td>
+                                        <td align="center"><font class="f6"><a href="{$smarty.const.__MODULE__}/Order/order_delete/order_id/{$v.order_id}" >取消订单</a></font></td>
+                                        {elseif $v.order_status=="已付款"}
+                                        <td align="center"><font class="f6">等待发货</font></td>
+                                        {elseif $v.order_status=="已发货"}
                                         <td align="center"><font class="f6"><a href="{$smarty.const.__MODULE__}/Order/order_confirm/order_id/{$v.order_id}" >确认收货</a></font></td>
                                         {elseif $v.order_status=="已完成"}
                                         <td align="center"><font class="f6">已完成</font></td>
                                         {elseif $v.order_status=="取消"}
                                         <td align="center"><font class="f6">已取消</font></td>
-                                        {elseif $v.order_status=="待付款"}
-                                        <td align="center"><font class="f6"><a href="{$smarty.const.__MODULE__}/Order/order_pay/order_id/{$v.order_id}" >我要付款</a></font></td>
-                                        <td align="center"><font class="f6"><a href="{$smarty.const.__MODULE__}/Order/order_delete/order_id/{$v.order_id}" >取消订单</a></font></td>
                                         {/if}
                                     </tr>
                                 {/foreach}

@@ -46,31 +46,36 @@ class HomeController extends Controller{
 
     /**
      * 设置SESSION
-     *  @param $name，SESSION的KEY，若为数组，其key与value分别对应SESSION的key和value
-     *  @param $value ，SESSION的值
-     *  @return bool ，$name是数组，成功会返回true
+     *  @param $value ，SESSION['order_sn']的值
      */
-    function set_order_session($name,$value=""){
-        if(is_array($name)){
-            foreach($name as $k=>$v){
-                $_SESSION[$k]=$v;
-            }
-            return true;
-        }
-        $_SESSION[$name]=$value;
+    function set_order_session($value){
+        $_SESSION['order_sn']=$value;
     }
 
     /**
      * 返回要获取的SESSIO值
-     * @param $name
      * @return bool  成功返回数据，不存在返回false
      */
-    function get_session($name){
-        if(isset($_SESSION[$name])){
-            return $_SESSION[$name];
+    function get_order_session(){
+        if(isset($_SESSION['order_sn'])){
+            return $_SESSION['order_sn'];
         }
         return false;
     }
 
+
+    /**
+     * 自定义重定向函数，支持延迟，输入提示信息
+     * @param string $url 跳转信息
+     * @param array $params 传入参数
+     * @param int $delay 延迟秒数
+     * @param string $msg 弹框提示信息
+     * @return void
+     */
+    function my_redirect($url,$params=array(),$delay=1,$msg='出问题啦'){
+        $temp_url=U($url);
+        $a_str="<script>alert('{$msg}')</script>即将跳转，若无反应，<a href='{$temp_url}'>点击这里";
+        $this->redirect($url,$params,$delay,$a_str);
+    }
 
 }

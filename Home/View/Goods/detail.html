@@ -162,16 +162,17 @@
                                 <li class="padd loop">
                                     <strong>颜色:</strong>
                                     <label for="spec_value_227">
-                                        <input name="spec_185" value="227" id="spec_value_227" checked="checked" onclick="changePrice()" type="radio" />
+                                        <input name="color" value="227" id="spec_value_227" checked="checked" onclick="changePrice()" type="radio" />
                                         白色 [ ￥0.00元] </label>
                                     <label for="spec_value_226">
-                                        <input name="spec_185" value="226" id="spec_value_226" onclick="changePrice()" type="radio" />
+                                        <input name="color" value="226" id="spec_value_226" onclick="changePrice()" type="radio" />
                                         黑色 [加 ￥10.00元] </label>
-                                    <input name="spec_list" value="1" type="hidden" />
                                 </li>
 
                                 <li class="padd">
                                     <input type="hidden" name="goods_id" value="{$goods_info.goods_id}">
+                                    <input type="hidden" name="goods_price" value="{$goods_info.goods_price}">
+
                                     <a><button><img src="{$smarty.const.IMG_URL}goumai2.gif"></button></a>
                                     <a href="javascript:void(0)" onclick="alert('收藏成功')"><img src="{$smarty.const.IMG_URL}shoucang2.gif"></a>
                                     <a href="javascript:void(0)" onclick="alert('功能·待完善')"><img src="{$smarty.const.IMG_URL}tuijian.gif"></a>
