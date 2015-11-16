@@ -1,8 +1,35 @@
-
+<?php /* Smarty version Smarty-3.1.6, created on 2015-11-16 18:41:31
+         compiled from "E:\xampp\htdocs\buy_tp\shop\Home\View\Public\foot.html" */ ?>
+<?php /*%%SmartyHeaderCode:96545649a1c8003e26-78062315%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '12105d9dfea783e761e156dc41f13157af972edb' => 
+    array (
+      0 => 'E:\\xampp\\htdocs\\buy_tp\\shop\\Home\\View\\Public\\foot.html',
+      1 => 1447670490,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '96545649a1c8003e26-78062315',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5649a1c804a33',
+  'variables' => 
+  array (
+    'ad_bottom' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5649a1c804a33')) {function content_5649a1c804a33($_smarty_tpl) {?>
         
         <div class="blank"></div>
         <div class="block">
-            <a href="#" target="_blank" title="hofo商城"><img alt="hofo商城" src="{$smarty.const.IMG_URL}di.jpg" /></a>
+            <a href="#" target="_blank" title="hofo商城"><img alt="hofo商城" src="<?php echo @IMG_UPLOAD;?>
+<?php echo $_smarty_tpl->tpl_vars['ad_bottom']->value;?>
+" /></a>
             <div class="blank"></div>
         </div>
         <div class="block">
@@ -54,8 +81,10 @@
         <div id="bottomNav" class="box block">
             <div class="box_1">
                 <div class="links clearfix"> 
-                    <a href="#" target="_blank" title="hofo商城"><img src="{$smarty.const.IMG_URL}logo.png" alt="hofo商城" border="0" /></a>
-                    <a href="#" target="_blank" title="hofo商城"><img src="{$smarty.const.IMG_URL}logo.png" alt="hofo商城" border="0" /></a>
+                    <a href="#" target="_blank" title="hofo商城"><img src="<?php echo @IMG_URL;?>
+logo.png" alt="hofo商城" border="0" /></a>
+                    <a href="#" target="_blank" title="hofo商城"><img src="<?php echo @IMG_URL;?>
+logo.png" alt="hofo商城" border="0" /></a>
                 </div>
             </div>
         </div>
@@ -96,9 +125,13 @@
                 </a>
             </div>
         </div>
-        <img class="MagicThumb-image" style="position: absolute; top: -9999px; display: none;" src="{$smarty.const.IMG_URL}9_P_1241511871575.jpg" />
-        <img src="{$smarty.const.IMG_URL}controlbar.htm" style="position: absolute; top: -999px;" />
-        <img style="position: absolute; left: -10000px; top: -10000px;" src="{$smarty.const.IMG_URL}9_P_1241511871575.jpg" />
-        <img style="position: absolute; left: -10000px; top: -10000px;" src="{$smarty.const.IMG_URL}9_P_1241511871575.jpg" />
+        <img class="MagicThumb-image" style="position: absolute; top: -9999px; display: none;" src="<?php echo @IMG_URL;?>
+9_P_1241511871575.jpg" />
+        <img src="<?php echo @IMG_URL;?>
+controlbar.htm" style="position: absolute; top: -999px;" />
+        <img style="position: absolute; left: -10000px; top: -10000px;" src="<?php echo @IMG_URL;?>
+9_P_1241511871575.jpg" />
+        <img style="position: absolute; left: -10000px; top: -10000px;" src="<?php echo @IMG_URL;?>
+9_P_1241511871575.jpg" />
     </body>
-</html>
+</html><?php }} ?>

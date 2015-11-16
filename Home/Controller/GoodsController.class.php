@@ -44,14 +44,17 @@
             //2.实例化分页对象
             $page = new \Component\Page($total,$per);//实例化分页类
             // 3.写SQL语句
-            $sql = "select * from sw_goods ";
+            if(!empty($_GET['cate_id'])){
+                $sql = "select * from sw_goods where goods_category_id={$_GET['cate_id']}";
+            }else{
+                $sql = "select * from sw_goods ";
+            }
             $sql .= " ".$page->limit;
             $goods_hot = $goods ->query($sql);
             // 4.获得页码列表
             $pagelist = $page->fpage();
-            // $this->assign('goods_hot',$goods_hot);
+             $this->assign('goods_hot',$goods_hot);
             $this->assign('pagelist',$pagelist);
-
             $this -> display();
         }
 
@@ -69,29 +72,29 @@
 
         //        购物车页面
         function gwc_show(){
-            show($_POST);
+//            show($_POST);
             $order=D('Goods');
             if(!empty($_POST['goods_id'])){
                 //如果是通过商品详情页面添加过来的
                 $goods_price=$_POST['number']*$_POST['goods_price'];//当前商品的价钱
                 if($_SESSION['goods_id']){
-                    //如果该商品以前已经加入过，不计入
-                    $goods_id=$_SESSION['goods_id'].",".$_SESSION['goods_id'];
-                }else{
-                    //若没有加入
-                    $goods_id=$_POST['goods_id'];//存储所有商品的ID
-                }
-                echo $goods_id;
-                $goods_num_all=$_SESSION['shop_car_num'] ? $_POST['number']+@$_SESSION['shop_car_num'] : $_POST['number'];//存储购物车内商品总数量
-                $goods_price_all=$_SESSION['shop_car_price'] ? $goods_price+@$_SESSION['shop_car_price'] : $goods_price;//存储购物车内商品总价格
+                //如果该商品以前已经加入过，不计入
+                $goods_id=$_SESSION['goods_id'].",".$_SESSION['goods_id'];
             }else{
-                //如果点击查看购物车进入
-                $goods_id = $_SESSION['goods_id'];
+                //若没有加入
+                $goods_id=$_POST['goods_id'];//存储所有商品的ID
+            }
+            echo $goods_id;
+            $goods_num_all=$_SESSION['shop_car_num'] ? $_POST['number']+@$_SESSION['shop_car_num'] : $_POST['number'];//存储购物车内商品总数量
+            $goods_price_all=$_SESSION['shop_car_price'] ? $goods_price+@$_SESSION['shop_car_price'] : $goods_price;//存储购物车内商品总价格
+        }else{
+        //如果点击查看购物车进入
+    $goods_id = $_SESSION['goods_id'];
                 $goods_num_all = $_SESSION['shop_car_num'];
                 $goods_price_all = $_SESSION['goods_price_all'];
             }
              $goods_info=$order->select($goods_id);
-            show($goods_info);
+//            show($goods_info);
 
             if($goods_info){
                 $_SESSION['shop_car_num']=$goods_num_all;//购物车内商品总数量

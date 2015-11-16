@@ -385,9 +385,9 @@
 
 		/**
 		 * 分页显示集成函数
-		 * @param $table_name  查询的表名
-		 * @param $num 每页条数
-		 * @param $where 条件判断
+		 * @param $table_name  ,查询的表名
+		 * @param $num ,每页条数
+		 * @param $where ,条件判断
 		 * @return array 返回值
 		 * 		array['info']存放查询的分页信息
 		 * 		array['pagelist']存放分页的HTML代码

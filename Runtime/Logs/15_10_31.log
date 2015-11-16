@@ -1,0 +1,9 @@
+[ 2015-10-31T08:27:50+08:00 ] 127.0.0.1 /buy_tp/shop/
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 103 "&lt;img src=&quot;{$smarty.const.IMG_UPLOAD}{$goods_hot[v].goods_small_img}&quot; alt=&quot;{{$goods_hot[v].goods_name}&quot; class=&quot;goodsimg&quot;&gt;"  - Unexpected """, expected one of: "}" , " "
+
+[ 2015-10-31T08:27:56+08:00 ] 127.0.0.1 /buy_tp/shop/
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 103 "&lt;img src=&quot;{$smarty.const.IMG_UPLOAD}{$goods_hot[v].goods_small_img}&quot; alt=&quot;{{$goods_hot[v].goods_name}&quot; class=&quot;goodsimg&quot;&gt;"  - Unexpected """, expected one of: "}" , " "
+
+[ 2015-10-31T08:28:28+08:00 ] 127.0.0.1 /buy_tp/shop/
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 110 "&lt;font class=&quot;market&quot;&gt;￥{{$goods_hot[v].goods_price+300}元&lt;/font&gt;&lt;br /&gt;"  - Unexpected "�", expected one of: "}" , " "
+

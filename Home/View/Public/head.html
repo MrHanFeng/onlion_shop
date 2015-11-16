@@ -41,9 +41,10 @@
             </div>
             <div id="mainNav" class="clearfix">
                 <a href="{$smarty.const.__MODULE__}/Index/index">首页<span></span></a>
-                <a href="{$smarty.const.__MODULE__}/Goods/showlist">手机<span></span></a>
-                <a href="#">耳机<span></span></a>
-                <a href="#">电脑<span></span></a>
+
+                {section name=cate_k loop=$cate max=3 }
+                <a href="{$smarty.const.__MODULE__}/Goods/showlist/cate_id/{$cate[cate_k].cat_id}">{$cate[cate_k].cat_name}<span></span></a>
+                {/section}
                 <a href="#">优惠活动<span></span></a>
                 <a href="#">留言板<span></span></a>
 

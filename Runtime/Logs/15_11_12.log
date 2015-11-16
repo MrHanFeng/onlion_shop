@@ -1,0 +1,9 @@
+[ 2015-11-12T19:39:49+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/User/password/user_email=289468343@qq.com)&code=555f02fe21bc6e55e46bb96113c12ffc
+ERR: 参数错误或者未定义:user_email
+
+[ 2015-11-12T22:18:07+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Ucenter/ucenter3
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Ucenter\ucenter3.html"  on line 49 "&lt;td align=&quot;center&quot;&gt;&lt;font class=&quot;f6&quot;&gt;&lt;a href=&quot;{$smarty.const.__ROOT__}/Admin/Order/order_delete/order_id/{$v.order_id}&quot; &gt;取消订单&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;" unclosed {else} tag
+
+[ 2015-11-12T22:18:10+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Ucenter/ucenter3
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Ucenter\ucenter3.html"  on line 49 "&lt;td align=&quot;center&quot;&gt;&lt;font class=&quot;f6&quot;&gt;&lt;a href=&quot;{$smarty.const.__ROOT__}/Admin/Order/order_delete/order_id/{$v.order_id}&quot; &gt;取消订单&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;" unclosed {else} tag
+

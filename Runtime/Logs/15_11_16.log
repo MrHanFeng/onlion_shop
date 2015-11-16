@@ -1,0 +1,225 @@
+[ 2015-11-16T17:27:39+08:00 ] 127.0.0.1 /buy_tp/shop/
+ERR: Unable to load template file '../head.html' in 'Index/index.html'
+
+[ 2015-11-16T18:32:39+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 2 "{include $smarty.__MODULE__/Public/head}" $smarty.__MODULE__ is invalid
+
+[ 2015-11-16T18:33:00+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '$smarty.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:33:10+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:33:11+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:33:46+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:33:47+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:33:48+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:38:59+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:39:07+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:39:08+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:39:08+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:39:08+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T18:39:09+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Unable to load template file '.__MODULE__/Public/head' in 'Index/index.html'
+
+[ 2015-11-16T19:18:14+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Admin/News/news_list
+ERR: 模板不存在:E:/xampp/htdocs/buy_tp/shop/Admin/View/News/news_list.html
+
+[ 2015-11-16T19:22:42+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Admin/News/news_list
+ERR: 模板不存在:E:/xampp/htdocs/buy_tp/shop/Admin/View/News/news_list.html
+
+[ 2015-11-16T19:22:43+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Admin/News/news_list
+ERR: 模板不存在:E:/xampp/htdocs/buy_tp/shop/Admin/View/News/news_list.html
+
+[ 2015-11-16T19:22:57+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Admin/News/news_list
+ERR: 模板不存在:E:/xampp/htdocs/buy_tp/shop/Admin/View/News/news_list.html
+
+[ 2015-11-16T19:22:58+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Admin/News/news_list
+ERR: 模板不存在:E:/xampp/htdocs/buy_tp/shop/Admin/View/News/news_list.html
+
+[ 2015-11-16T19:22:58+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Admin/News/news_list
+ERR: 模板不存在:E:/xampp/htdocs/buy_tp/shop/Admin/View/News/news_list.html
+
+[ 2015-11-16T19:22:59+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Admin/News/news_list
+ERR: 模板不存在:E:/xampp/htdocs/buy_tp/shop/Admin/View/News/news_list.html
+
+[ 2015-11-16T19:42:28+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Admin/News/news_update/news_id/1
+ERR: 模板不存在:E:/xampp/htdocs/buy_tp/shop/Admin/View/News/news_update.html
+
+[ 2015-11-16T19:52:15+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 195 "{$foreach $news_info as $vv}"  - Unexpected " as ", expected one of: "}" , " "
+
+[ 2015-11-16T19:52:29+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {foreach} tag
+
+[ 2015-11-16T19:52:30+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {foreach} tag
+
+[ 2015-11-16T19:52:30+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {foreach} tag
+
+[ 2015-11-16T19:52:33+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 199 "{foreach}" missing "from" attribute
+
+[ 2015-11-16T20:05:30+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:05:49+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 265 "" unclosed {section} tag
+
+[ 2015-11-16T20:05:49+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 265 "" unclosed {section} tag
+
+[ 2015-11-16T20:05:59+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:06:01+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:06:33+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:06:37+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:06:44+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:06:45+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:06:58+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index?keywords=kjsdf+&imageField=+
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:07:03+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:07:12+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:07:35+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:07:35+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:07:36+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:07:36+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 266 "" unclosed {section} tag
+
+[ 2015-11-16T20:07:44+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 265 "" unclosed {section} tag
+
+[ 2015-11-16T20:07:50+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:08:05+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:08:09+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:08:12+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:08:15+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:09:22+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:09:23+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:09:23+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:09:23+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:09:23+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:09:23+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:09:23+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:09:23+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 263 "" unclosed {section} tag
+
+[ 2015-11-16T20:09:28+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 262 "" unclosed {section} tag
+
+[ 2015-11-16T20:10:09+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 265 "" unclosed {section} tag
+
+[ 2015-11-16T20:10:10+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 265 "" unclosed {section} tag
+
+[ 2015-11-16T20:10:10+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 265 "" unclosed {section} tag
+
+[ 2015-11-16T20:14:46+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:18:47+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:18:48+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:19:45+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:19:46+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:20:31+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:20:32+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:20:32+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Index/index
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Index\index.html"  on line 264 "" unclosed {section} tag
+
+[ 2015-11-16T20:24:12+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/detail/goods_id/
+ERR: 参数错误或者未定义:goods_id
+
+[ 2015-11-16T21:14:18+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/showlist/cate_id/1
+ERR: Unable to load template file 'Goods/showlist.html'
+
+[ 2015-11-16T21:25:59+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/detail/goods_id/132
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Goods\detail.html"  on line 2 "{include $smarty.__SELF__}" $smarty.__SELF__ is invalid
+
+[ 2015-11-16T21:26:10+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/detail/goods_id/132
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Goods\detail.html"  on line 2 "{include }{$smarty.__SELF__}" missing "file" attribute
+
+[ 2015-11-16T21:26:11+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/detail/goods_id/132
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Goods\detail.html"  on line 2 "{include }{$smarty.__SELF__}" missing "file" attribute
+
+[ 2015-11-16T21:26:16+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/detail/goods_id/132
+ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Goods\detail.html"  on line 2 "{$smarty.__SELF__}" $smarty.__SELF__ is invalid
+

@@ -1,0 +1,21 @@
+[ 2015-11-14T15:52:22+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/do_order
+ERR: Think\Controller:set_session方法不存在！
+
+[ 2015-11-14T15:55:51+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/gwc_success.shtml
+ERR: Think\Controller:order_order_session方法不存在！
+
+[ 2015-11-14T16:14:55+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/showlist
+ERR: Syntax Error in template "E:\xampp\htdocs\buy_tp\shop\Home\View\head.html"  on line 70 "&lt;a href=&quot;#&quot; title=&quot;查看购物车&quot;&gt;您的购物车中有 {$} 件商品，总计金额 ￥2000.00元。&lt;/a&gt;&lt;/span&gt;"  - Unexpected "}", expected one of: "{" , "identifier"
+
+[ 2015-11-14T17:22:31+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Goods/detail/goods_comment/goods_comment.shtml
+ERR: 参数错误或者未定义:goods_id
+
+[ 2015-11-14T17:44:49+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Order/order_pay/order_id/26
+ERR: Think\Controller:my_redirect方法不存在！
+
+[ 2015-11-14T17:46:07+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Order/order_pay/order_id/26
+ERR: Think\Controller:my_redirect方法不存在！
+
+[ 2015-11-14T17:46:49+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Order/order_pay/order_id/26
+ERR: Think\Controller:my_redirect方法不存在！
+

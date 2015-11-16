@@ -17,6 +17,10 @@
 				$this->display();
 			}
 	    }
+/*		function  display(){
+			$this->assign()
+				parent::display(())
+		}*/
 
 		function mobile_index(){
 			$this->display();
@@ -48,6 +52,32 @@
 	    	// 新品排行
 	    	$info = $goods->field('goods_id,goods_name,goods_price,goods_big_img,goods_small_img')->limit(0,3)->order('goods_create_time desc')->select();
 	    	$this->assign('goods_price_time',$info);
+
+			//广告
+			$info = M('Ad')->getByAd_position('主页顶部广告');
+			$this->assign('ad_top',$info['ad_big_img']);
+
+			$info = M('Ad')->getByAd_position('主页底部广告');
+//			show($info);
+			$this->assign('ad_bottom',$info['ad_big_img']);
+
+
+			//新闻公告
+			$info= M('News')->select();
+			$this->assign('news_info',$info);
+
+			//导航分类遍历
+			$cate = M('category');
+			$cate_info=$cate->select();
+			$this->assign('cate',$cate_info);
+
+			//主体商品，左侧分类列表
+			$cate_mobile=$goods->where('goods_category_id=1')->select();//查询手机信息
+			$cate_computer=$goods->where('goods_category_id=2')->select();//查询手机信息
+			$cate_other=$goods->where('goods_category_id =3')->select();//查询手机信息
+			$this->assign('cate_mobile',$cate_mobile);
+			$this->assign('cate_computer',$cate_computer);
+			$this->assign('cate_other',$cate_other);
 		}
 
 
