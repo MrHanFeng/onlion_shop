@@ -34,6 +34,8 @@
                                         <td>订单状态</td>
                                         <td>操作</td>
                                     </tr>
+                              
+                            {if $order_info}
                                 {foreach $order_info as $v}
                                     <tr>
 
@@ -55,6 +57,9 @@
                                         {/if}
                                     </tr>
                                 {/foreach}
+                            {else}
+                                <td>暂无订单，您可以去添加</td>
+                            {/if}
                                 </tbody></table>
                             <div class="blank5"></div>
 

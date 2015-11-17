@@ -69,7 +69,7 @@
             session('user_email',null);
             session('user_username',null);
             session('user_id',null);
-            $this -> redirect('index/index');
+            $this -> redirect('Index/index');
         }
 
         /**
@@ -81,8 +81,8 @@
             //应用的APPKEY
             $app_secret = "7d5e215c1651f14dd0024845899a553e";
             //【成功授权】后的回调地址，即此地址在腾讯的信息中有储存
-            $my_url = "http://www.letsman.com/buy_tp/shop/index.php/Home/User/qq_login";
-
+            $my_url = "http://www.letsman.com/shop/index.php/Home/User/qq_login";
+            
             //Step1：获取Authorization Code
             session_start();
             $code = $_REQUEST["code"];//存放Authorization Code
@@ -141,11 +141,12 @@
                 //Step4：使用Access Token来获取用户的信息
                 $user_data_url = "https://graph.qq.com/user/get_user_info?access_token={$params['access_token']}&oauth_consumer_key={$app_id}&openid={$user->openid}&format=json";
                 $user_data = file_get_contents($user_data_url);//此为获取到的user信息
+                // show($user_data);exit;
                 $user_model=D('User')->qq_user($user->openid);
 //                show($user_model);exit;
                 if($user_model){
                     //已经登陆过，进行SESSION操作
-//                    $_SESSION['user_email']=$user_model[0]['user_email'];
+                   // $_SESSION['user_email']=$user_model[0]['user_email'];
                     $_SESSION['user_username']=$user_model[0]['username'];
                     $_SESSION['user_id']=$user_model[0]['user_id'];
 //                    show($_SESSION);exit;
@@ -189,7 +190,7 @@
             if($re){
                 $arr['user_id']=$re;
                 $arr['username']=$user->getFieldByUser_id($re,"username");
-                $this->ucenter_register();
+                // $this->ucenter_register();
                 return $arr;
             }
             return false;
@@ -252,7 +253,8 @@
             }
 
         function ucenter_register(){
-//            show($_SESSION);
+           // show($_SESSION);
+           // exit;
             $num = rand(100000,999999);
             $code = md5($num);
             $user=M('User');
@@ -274,13 +276,13 @@
                         你好！$user_email
                         <h2>欢迎注册MR.峰网站</h2>
                         请点击如下地址激活帐号:<br/><br/>
-                        <a href="http://localhost/buy_tp/shop/index.php/Home/User/register_finish/user_email/$user_email/code/$code">
-                        http://localhost/buy_tp/shop/index.php/Home/User/register_finish/user_email/$user_email/code/$code</a>
+                        <a href="www.letsman.com/shop/index.php/Home/User/register_finish/user_email/$user_email/code/$code">
+                        http://www.letsman.com/shop/index.php/Home/User/register_finish/user_email/$user_email/code/$code</a>
                         <br/><br/>
 str;
                 /*发送邮件*/
                 if(SendMail("$user_email",'欢迎注册峰峰购物网站',"$message")){
-                    $this->success('发送成功，请激活后登录',U($to));
+                    $this->success('发送激活邮件，请激活后登录',U($to));
                 }else{
                     $this->error('发送失败',U("register"));
                 }
@@ -329,8 +331,8 @@ str;
                             你好！$_POST[user_email]
                                 <h2>欢迎使用MR.峰的网站</h2>
                                 点击如下地址找回帐号密码:<br/><br/>
-                                <a href="http://localhost/buy_tp/shop/index.php/Home/User/password/user_email=$_POST[user_email])&code=$code">
-                                http://localhost/buy_tp/shop/index.php/Home/User/password/user_email=$_POST[user_email]&code=$code</a>
+                                <a href="http://www.letsman.com/shop/index.php/Home/User/password/user_email=$_POST[user_email])&code=$code">
+                                http://www.letsman.com/shop/index.php/Home/User/password/user_email=$_POST[user_email]&code=$code</a>
                                 <br/><br/>
 str;
 

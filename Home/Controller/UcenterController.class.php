@@ -20,6 +20,8 @@ class UcenterController extends HomeController{
 //                $re = $user_model->where("user_id={$_POST['user_id']}")->data($_POST)->save();
                 $user_model->create();
                 $re=$user_model->save();
+                $_SESSION['user_email']=$_POST['user_email'];//在此存入，方便用户激活
+
 //                echo $user_model->getLastSql();exit;
                 $this->if_re($re,array('设置成功，请完善您的个人信息','ucenter4'),array('完善信息失败'));
             }else{
@@ -77,7 +79,12 @@ class UcenterController extends HomeController{
             $order_id=substr($order_id,0,-1);
             $order_info=$a->select($order_id);//查询出该用户所有订单
 //            show($order_info);exit;
-            $this->assign('order_info',$order_info);
+            if(is_array($order_info)){
+                $this->assign('order_info',$order_info);
+            }else{
+                $this->assign('order_info','');
+
+            }
             $this->assign('order_num',count($order_info));
             $this->display();
         }

@@ -1,5 +1,6 @@
 {include "../Public/head.html"}
 
+
         <div class="block box">
             <div class="blank"></div>
             <div id="ur_here">
@@ -23,32 +24,29 @@
                                 <th>小计</th>
                                 <th>操作</th>
                             </tr>
-                        {foreach $goods_info as $v}
                             <tr>
                                 <td align="center">
-                                    <a href="#" target="_blank"><img style="width: 80px; height: 80px;" src="{$smarty.const.IMG_UPLOAD}{$v.goods_small_img}" title="{$v.goods_name}" /></a><br />
-                                    <a href="{$smarty.const.__MODULE__}/Goods/detail/goods_id/{$v.goods_id}" target="_blank" class="f6">{$v.goods_name}</a>
+                                    <a href="#" target="_blank"><img style="width: 80px; height: 80px;" src="{$smarty.const.IMG_UPLOAD}{$goods_info.goods_small_img}" title="{$goods_info.goods_name}" /></a><br />
+                                    <a href="{$smarty.const.__MODULE__}/Goods/detail/goods_id/{$goods_info.goods_id}" target="_blank" class="f6">{$goods_info.goods_name}</a>
                                 </td>
                                 <td>颜色:随机 <br />
                                 </td>
-                                <td align="right">￥{$v.goods_price*1.5}.00元</td>
-                                <td align="right">￥{$v.goods_price}.00元</td>
+                                <td align="right">￥{$goods_info.goods_price*1.5}.00元</td>
+                                <td align="right">￥{$goods_info.goods_price}.00元</td>
                                 <td align="right">
                                     <center><input type="text" name="goods_num" value="{$number}" style="width:25px;"></center>
                                 </td>
-                                <td align="right"><font color="#ff4500">￥{$v.goods_price*$number}.00元</font></td>
+                                <td align="right"><font color="#ff4500">￥{$goods_info.goods_price*$number}.00元</font></td>
                                 <td align="center">
                                     <a href="#" class="f6">删除</a>
                                 </td>
                             </tr>
-                        {/foreach}
-
                         </tbody>
                     </table>
                     <table cellpadding="5" cellspacing="1">
                         <tbody><tr>
                                 <td>
-                                    购物金额小计 ￥{$goods_price_all}.00元，比市场价 ￥{$goods_price_all*1.5}.00元 <font color="red">节省了 ￥{$goods_price_all*0.5}.00元 </font>(17%)              </td>
+                                    购物金额小计 ￥{$goods_info.goods_price*$number}.00元，比市场价 ￥{$goods_info.goods_price*1.5}.00元 <font color="red">节省了 ￥{$goods_info.goods_price*0.5*$number}.00元 </font>(17%)              </td>
                                 <td align="right">
                                     <input value="清空购物车" class="bnt_blue_1"  type="button" />
                                     <input name="submit" class="bnt_blue_1" value="更新购物车" type="submit" />

@@ -5,7 +5,7 @@ use Component\AdminController;
 
 class NewsController extends AdminController{
     function news_list(){
-        $re=R("Goods/pager",array('News','10'));
+        $re=R("Goods/pager",array('news','10'));
         $this->assign('news_info',$re['info']);
         $this->assign('pagelist',$re['pagelist']);
         $this->display();

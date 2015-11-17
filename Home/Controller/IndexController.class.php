@@ -57,9 +57,9 @@
 			$info = M('Ad')->getByAd_position('主页顶部广告');
 			$this->assign('ad_top',$info['ad_big_img']);
 
-			$info = M('Ad')->getByAd_position('主页底部广告');
+		/*	$info = M('Ad')->getByAd_position('主页底部广告');
 //			show($info);
-			$this->assign('ad_bottom',$info['ad_big_img']);
+			$this->assign('ad_bottom',$info['ad_big_img']);*/
 
 
 			//新闻公告

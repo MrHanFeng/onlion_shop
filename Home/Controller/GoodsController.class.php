@@ -70,8 +70,19 @@
             $this -> display();
         }
 
-        //        购物车页面
         function gwc_show(){
+            $order=D('Goods');
+            $goods_info=$order->goods_info($_POST['goods_id']);
+            if($goods_info){
+                $this->assign('goods_info',$goods_info);
+            }else{
+                echo "查询错误";
+            }
+            $this->assign('number',$_POST['number']);
+            $this->display();
+        }
+        //        购物车页面
+        function gwc_show2(){
 //            show($_POST);
             $order=D('Goods');
             if(!empty($_POST['goods_id'])){

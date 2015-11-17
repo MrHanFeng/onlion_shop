@@ -3,7 +3,7 @@ return array(
 		//'配置项'=>'配置值'
 
 	// 让页面显示追中日志信息
-	'SHOW_PAGE_TRACE' => true,
+	'SHOW_PAGE_TRACE' => false,
 	 'APP_FILE_CASE'  => true,   // 是否检查文件的大小写 对Windows平台有效
 
 
@@ -15,6 +15,18 @@ return array(
 
 
 	/*   sql数据库设置   */
+//	'DB_TYPE'               =>  'mysql',     // 数据库类型
+//	'DB_HOST'               =>  'localhost', // 服务器地址
+//	'DB_NAME'               =>  'shop',          // 数据库名
+//	'DB_USER'               =>  'root',    		 // 用户名
+//	'DB_PWD'                =>  'root',          // 密码
+//	'DB_PORT'               =>  '3306',      	 // 端口
+//	'DB_PREFIX'             =>  'sw_',    		 // 数据库表前缀
+//	'DB_FIELDTYPE_CHECK'    =>  false,       // 是否进行字段类型检查
+//	'DB_FIELDS_CACHE'       =>  true,        // 启用字段缓存,系统上线时注意，有缓存不用每次执行，避免浪费SQL资源
+//	'DB_CHARSET'            =>  'utf8',      // 数据库编码默认采用utf8
+
+	/*   sql数据库设置   */
 	'DB_TYPE'               =>  'mysql',     // 数据库类型
 	'DB_HOST'               =>  'localhost', // 服务器地址
 	'DB_NAME'               =>  'shop',          // 数据库名
@@ -24,8 +36,7 @@ return array(
 	'DB_PREFIX'             =>  'sw_',    		 // 数据库表前缀
 	'DB_FIELDTYPE_CHECK'    =>  false,       // 是否进行字段类型检查
 	'DB_FIELDS_CACHE'       =>  true,        // 启用字段缓存,系统上线时注意，有缓存不用每次执行，避免浪费SQL资源
-	'DB_CHARSET'            =>  'utf8',      // 数据库编码默认采用utf8 
-
+	'DB_CHARSET'            =>  'utf8',      // 数据库编码默认采用utf8
 
 
 /*	'TMPL_L_DELIM'          =>  '{',// 模板引擎普通标签开始标记

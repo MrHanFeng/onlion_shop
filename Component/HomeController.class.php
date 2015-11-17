@@ -78,4 +78,22 @@ class HomeController extends Controller{
         $this->redirect($url,$params,$delay,$a_str);
     }
 
+
+    function display(){
+        $this->head();
+        $this->foot();
+        parent::display();
+    }
+    //导航分类遍历
+    function head(){
+			$cate = M('category');
+			$cate_info=$cate->select();
+			$this->assign('cate',$cate_info);
+    }
+    function foot(){
+        $info = M('Ad')->getByAd_position('主页底部广告');
+//			show($info);
+        $this->assign('ad_bottom',$info['ad_big_img']);
+    }
+
 }

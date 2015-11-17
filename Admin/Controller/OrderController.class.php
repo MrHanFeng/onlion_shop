@@ -6,7 +6,7 @@
     class OrderController extends AdminController{
 
         public function order_list(){
-            $re=R("Goods/pager",array('Order','7'));
+            $re=R("Goods/pager",array('order','7'));
             $this->assign('order_info',$re['info']);
             $this->assign('pagelist',$re['pagelist']);
             $this->display();

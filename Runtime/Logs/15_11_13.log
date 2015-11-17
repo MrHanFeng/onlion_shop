@@ -1,9 +1,0 @@
-[ 2015-11-13T21:02:54+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Order/order_list.shtml
-ERR: Think\Controller:pager方法不存在！
-
-[ 2015-11-13T21:04:21+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Ucenter/ucenter3
-ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Ucenter\ucenter3.html"  on line 48 "{elseif}" missing elseif condition
-
-[ 2015-11-13T21:47:33+08:00 ] 127.0.0.1 /buy_tp/shop/index.php/Home/Ucenter/ucenter1
-ERR: Syntax Error in template "E:/xampp/htdocs/buy_tp/shop/Home/View\Ucenter\ucenter1.html"  on line 23 "您的上一次登录时间: {user_info.user_last_time|date_format:&quot;%Y-%m-%d %H:%M:%S &quot;}&lt;br /&gt;"  - Unexpected ".", expected one of: "}" , " "
-
